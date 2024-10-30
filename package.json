@@ -1,0 +1,50 @@
+{
+  "name": "@fourtune/js-and-web-runtime-and-rollup-plugins",
+  "version": "0.0.0",
+  "description": "",
+  "author": "Anio Software <info@anio.software>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fourtune-org/js-and-web-runtime-and-rollup-plugins.git"
+  },
+  "exports": {
+    "./project/node-api": {
+      "import": "./dist/project.node/index.mjs",
+      "types": "./dist/project.node/index.d.mts"
+    },
+    "./project/rollup-plugin": {
+      "import": "./dist/project.rollup/index.mjs",
+      "types": "./dist/project.rollup/index.d.mts"
+    },
+    "./resources/node-api": {
+      "import": "./dist/resources.node/index.mjs",
+      "types": "./dist/resources.node/index.d.mts"
+    },
+    "./resources/rollup-plugin": {
+      "import": "./dist/resources.rollup/index.mjs",
+      "types": "./dist/resources.rollup/index.d.mts"
+    },
+    "./runtime/node-api": {
+      "import": "./dist/runtime.node/index.mjs",
+      "types": "./dist/runtime.node/index.d.mts"
+    },
+    "./runtime/rollup-plugin": {
+      "import": "./dist/runtime.rollup/index.mjs",
+      "types": "./dist/runtime.rollup/index.d.mts"
+    }
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/fourtune ."
+  },
+  "devDependencies": {
+    "@anio-fs/scandir": "^7.1.4",
+    "@anio-js-foundation/create-temporary-resource": "^2.0.0",
+    "@anio-software/fs": "^0.6.0",
+    "@fourtune/base-realm": "^0.4.0",
+    "@fourtune/realm-js": "^0.51.0",
+    "@fourtune/types": "^0.7.0",
+    "@types/node": "^22.8.4",
+    "fourtune": "^0.50.1"
+  }
+}

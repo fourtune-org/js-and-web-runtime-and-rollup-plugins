@@ -1,0 +1,6 @@
+{
+	"references": [
+		{"path": "./auto/cfg/tsconfig.src.json"},
+		{"path": "./auto/cfg/tsconfig.assets.json"}
+	]
+}

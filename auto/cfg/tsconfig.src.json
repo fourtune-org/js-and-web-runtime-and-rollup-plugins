@@ -1,0 +1,22 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "paths": {
+            "#/*": [
+                "./src/*"
+            ],
+            "##/*": [
+                "./auto/src/*"
+            ],
+            "&/*": [
+                "./assets/tsmodule/*"
+            ],
+            "&&/*": [
+                "./auto/assets/tsmodule/*"
+            ]
+        }
+    },
+    "include": [
+        "../../src/**/*"
+    ]
+}
