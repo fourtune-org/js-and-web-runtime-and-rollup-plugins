@@ -15,6 +15,8 @@ function _getResourceType(url : string) {
 	throw new Error(`Unable to locate resource "${url}" (dynamic).`)
 }
 
+export type * from "@fourtune/types/realm-js-and-web/resources/v0/"
+
 export function loadResource(url : string) : ProjectResource {
 	for (const resource of resources) {
 		if (resource.url === url) {
