@@ -23,7 +23,7 @@ const initializeResourcesData : InitializeResourcesData = async function(
 	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
 	const entries = (await scandir(
-		path.join(project_root, "resources"), {
+		path.join(project_root, "assets"), {
 			allow_missing_dir: true
 		}
 	)) ?? []
