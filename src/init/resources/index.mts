@@ -20,7 +20,6 @@ const initializeResourcesData : InitializeResourcesData = async function(
 	project_root = await resolveProjectRoot(project_root)
 
 	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
-	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
 	const entries = (await scandir(
 		path.join(project_root, "assets"), {
@@ -53,7 +52,7 @@ const initializeResourcesData : InitializeResourcesData = async function(
 				url: resource_url,
 				type: resource_type,
 				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
-					project_root, entry.absolute_path, base, initializeResourcesData
+					project_root, entry.absolute_path, getDependency, initializeResourcesData
 				)
 			})
 		} else {

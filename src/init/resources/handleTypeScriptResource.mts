@@ -9,10 +9,12 @@ import type {InitializeResourcesData} from "./index.mts"
 export default async function(
 	project_root : string,
 	entry_path : string,
-	base : BaseObject,
+	getDependency : (dependency : string) => any,
 	init_resources : InitializeResourcesData
 ) : Promise<string> {
 	const additional_plugins : JsBundlerPlugin[] = []
+
+	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
 	const {tsBundler} = base
 
