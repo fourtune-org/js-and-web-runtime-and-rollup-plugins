@@ -2,7 +2,7 @@ import type {
 	DefaultExportObject as BaseObject,
 	JsBundlerPlugin
 } from "@fourtune/types/base-realm-js-and-web/v0/"
-import {factory as projectRollupPlugin} from "#~src/export/project/rollup/factory.mts"
+import {factory as projectRollupPlugin} from "#/export/project/rollup/factory.mts"
 
 import type {InitializeResourcesData} from "./index.mts"
 

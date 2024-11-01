@@ -1,6 +1,6 @@
 {
   "name": "@fourtune/js-and-web-runtime-and-rollup-plugins",
-  "version": "0.2.0",
+  "version": "0.1.0",
   "description": "",
   "author": "Anio Software <info@anio.software>",
   "license": "MIT",
@@ -42,10 +42,10 @@
     "@anio-js-foundation/create-temporary-resource": "^2.0.0",
     "@anio-software/fs": "^0.6.0",
     "@fourtune/base-realm": "^0.4.0",
-    "@fourtune/realm-js": "^0.91.0",
-    "@fourtune/types": "^0.11.0",
+    "@fourtune/realm-js": "^0.51.0",
+    "@fourtune/types": "^0.7.0",
     "@types/node": "^22.8.4",
-    "fourtune": "^0.90.1"
+    "fourtune": "^0.50.1"
   },
   "files": [
     "./dist/"

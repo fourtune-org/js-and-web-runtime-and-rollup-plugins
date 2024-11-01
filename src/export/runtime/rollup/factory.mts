@@ -1,11 +1,11 @@
-import {loadResource} from "@fourtune/realm-js/resources"
+import {loadResource} from "@fourtune/realm-js/api"
 
 const runtime_init = loadResource(
 	"tsmodule://runtime/initializeRuntime.mts"
 )
 
-import {factory as projectPluginFactory} from "#~src/export/project/rollup/factory.mts"
-import gluecode from "#~auto/runtime_gluecode.mts"
+import {factory as projectPluginFactory} from "#/export/project/rollup/factory.mts"
+import gluecode from "##/runtime_gluecode.mts"
 
 export async function factory(project_root : string) {
 	const project_plugin = await projectPluginFactory(project_root)

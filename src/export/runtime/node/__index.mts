@@ -1,6 +1,6 @@
-import {initializeProjectData} from "#~src/init/project/index.mts"
+import {initializeProjectData} from "#/init/project/index.mts"
 
-import initializeRuntime from "#~assets/runtime/initializeRuntime.mts"
+import initializeRuntime from "&/runtime/initializeRuntime.mts"
 
 const project = await initializeProjectData(null)
 

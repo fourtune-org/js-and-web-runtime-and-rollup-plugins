@@ -1,5 +1,5 @@
-import {initializeProjectData} from "#~src/init/project/index.mts"
-import gluecode from "#~auto/project_gluecode.mts"
+import {initializeProjectData} from "#/init/project/index.mts"
+import gluecode from "##/project_gluecode.mts"
 
 export async function factory(project_root : string) {
 	const project = await initializeProjectData(project_root)

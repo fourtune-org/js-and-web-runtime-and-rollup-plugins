@@ -24,7 +24,7 @@ async function createGlueCodeFromFile(fourtune_session, file) {
 		"@fourtune/base-realm-js-and-web"
 	)
 
-	return `export default ${JSON.stringify((await tsStripTypesFromCode(glue_code.join("\n"))), null, 4)}\n`
+	return `export default ${JSON.stringify((await tsStripTypesFromCode(glue_code.join("\n"))).code, null, 4)}\n`
 }
 
 export default {

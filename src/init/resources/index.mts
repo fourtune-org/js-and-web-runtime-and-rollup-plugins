@@ -1,6 +1,6 @@
 import type {DefaultExportObject as BaseObject} from "@fourtune/types/base-realm-js-and-web/v0/"
 
-import resolveProjectRoot from "#~src/resolveProjectRoot.mjs"
+import resolveProjectRoot from "#/resolveProjectRoot.mjs"
 import {loadRealmDependencies} from "@fourtune/base-realm"
 import {scandir} from "@anio-fs/scandir"
 import path from "node:path"
