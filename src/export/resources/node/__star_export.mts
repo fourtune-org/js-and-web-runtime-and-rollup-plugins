@@ -1,5 +1,5 @@
-import {initializeResourcesData} from "#/init/resources/index.mts"
-import {loadResourceAsURLImplementation} from "&/loadResourceAsURLImplementation.mts"
+import {initializeResourcesData} from "#~src/init/resources/index.mts"
+import {loadResourceAsURLImplementation} from "#~assets/loadResourceAsURLImplementation.mts"
 
 const {resources} = await initializeResourcesData(null)
 

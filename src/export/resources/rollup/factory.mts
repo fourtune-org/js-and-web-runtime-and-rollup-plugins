@@ -1,4 +1,4 @@
-import {initializeResourcesData} from "#/init/resources/index.mts"
+import {initializeResourcesData} from "#~src/init/resources/index.mts"
 import {loadResource} from "@fourtune/realm-js/api"
 
 const loadResourceAsURLImplementation = loadResource(
