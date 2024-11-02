@@ -6,9 +6,11 @@ import fs from "node:fs/promises"
 import {scandir} from "@anio-fs/scandir"
 import path from "node:path"
 
+import type {JsParseAssetURLResult} from "@fourtune/types/base-realm-js-and-web/v0/"
+
 export async function getListOfUsedProjectAssets(
 	base : BaseObject, project_root : string
-) : Promise<false|Map<string, 1>> {
+) : Promise<false|Map<JsParseAssetURLResult, 1>> {
 	let ret = new Map()
 
 	const source_files = (await scandir(
