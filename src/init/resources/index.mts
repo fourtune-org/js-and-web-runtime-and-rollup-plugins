@@ -11,7 +11,7 @@ export type InitializeAssets = (
 	is_in_static_ambient? : boolean
 ) => Promise<{resources: any[]}>
 
-const initializeResourcesData : InitializeAssets = async function(
+const initializeAssets : InitializeAssets = async function(
 	project_root : string | null,
 	is_in_static_ambient : boolean = false
 ) {
@@ -50,7 +50,7 @@ const initializeResourcesData : InitializeAssets = async function(
 				url: resource_url,
 				type: resource_type,
 				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
-					project_root, entry.absolute_path, getDependency, initializeResourcesData
+					project_root, entry.absolute_path, getDependency, initializeAssets
 				)
 			})
 		} else {
@@ -61,4 +61,4 @@ const initializeResourcesData : InitializeAssets = async function(
 	return {resources}
 }
 
-export {initializeResourcesData}
+export {initializeAssets}

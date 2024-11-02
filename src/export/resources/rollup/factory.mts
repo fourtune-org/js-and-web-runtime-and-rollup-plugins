@@ -1,4 +1,4 @@
-import {initializeResourcesData} from "#~src/init/resources/index.mts"
+import {initializeAssets} from "#~src/init/resources/index.mts"
 import {loadResource} from "@fourtune/realm-js/resources"
 
 const loadResourceAsURLImplementation = loadResource(
@@ -8,7 +8,7 @@ const loadResourceAsURLImplementation = loadResource(
 const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
 
 export async function factory(project_root : string) {
-	const {resources} = await initializeResourcesData(project_root)
+	const {resources} = await initializeAssets(project_root)
 
 	let resources_declarations = ``
 	let resources_lookup_fn = ``

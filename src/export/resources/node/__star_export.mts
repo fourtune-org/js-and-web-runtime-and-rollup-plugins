@@ -1,7 +1,7 @@
-import {initializeResourcesData} from "#~src/init/resources/index.mts"
+import {initializeAssets} from "#~src/init/resources/index.mts"
 import {loadResourceAsURLImplementation} from "#~assets/loadResourceAsURLImplementation.mts"
 
-const {resources} = await initializeResourcesData(null)
+const {resources} = await initializeAssets(null)
 
 import type {ProjectResource} from "@fourtune/types/realm-js-and-web/resources/v0/"
 
