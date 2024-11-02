@@ -17,7 +17,7 @@ function _getAssetType(url : string) {
 
 export type * from "@fourtune/types/realm-js-and-web/assets/v0/"
 
-export function loadResource(url : string) : ProjectAsset {
+export function getAsset(url : string) : ProjectAsset {
 	for (const asset of assets) {
 		if (asset.url === url) {
 			return asset.data
@@ -27,8 +27,8 @@ export function loadResource(url : string) : ProjectAsset {
 	throw new Error(`Unable to locate asset "${url}" (dynamic).`)
 }
 
-export function loadResourceAsURL(url : string) : string {
+export function getAssetAsURL(url : string) : string {
 	return getAssetAsURLImplementation(
-		url, loadResource(url), _getAssetType(url)
+		url, getAsset(url), _getAssetType(url)
 	)
 }

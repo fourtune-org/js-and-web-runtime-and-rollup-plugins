@@ -71,7 +71,7 @@ import {getAssetAsURLImplementation} from "\0fourtune:getAssetAsURLImplementatio
 
 ${assets_declarations}
 
-export function loadResource(url) {
+export function getAsset(url) {
 ${assets_lookup_fn}
 
 	throw new Error(
@@ -79,7 +79,7 @@ ${assets_lookup_fn}
 	)
 }
 
-export function loadResourceAsURL(url) {
+export function getAssetAsURL(url) {
 ${assets_lookup_fn2}
 	throw new Error(
 		\`Unable to locate asset "\${url}" (static).\`

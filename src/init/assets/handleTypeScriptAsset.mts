@@ -70,7 +70,7 @@ export default async function(
 				return `
 const static_resources = ${JSON.stringify(static_resources, null, 4)};
 
-export function loadResource(url) {
+export function getAsset(url) {
 	return static_resources
 }
 `
