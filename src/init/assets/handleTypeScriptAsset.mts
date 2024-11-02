@@ -51,27 +51,27 @@ export default async function(
 		plugin: await projectRollupPlugin(project_root)
 	})
 
-	const static_resources = await initializeAssets(project_root, true)
+	const static_assets = await initializeAssets(project_root, true)
 
 	additional_plugins.push({
 		when: "pre",
 		plugin: {
 			resolveId(id : string) {
 				if (id === "@fourtune/realm-js/assets") {
-					return `\0fourtune:static_resources`
+					return `\0fourtune:static_assets`
 				}
 
 				return null
 			},
 
 			load(id : string) {
-				if (id !== `\0fourtune:static_resources`) return null
+				if (id !== `\0fourtune:static_assets`) return null
 
 				return `
-const static_resources = ${JSON.stringify(static_resources, null, 4)};
+const static_assets = ${JSON.stringify(static_assets, null, 4)};
 
 export function getAsset(url) {
-	return static_resources
+	return static_assets
 }
 `
 			}
