@@ -30,7 +30,7 @@ export async function getListOfUsedProjectAssets(
 			code
 		)
 
-		const used_assets = base.jsGetRequestedAssetsFromCode(code)
+		const used_assets = await base.jsGetRequestedAssetsFromCode(code)
 
 		// false means we were not able to determine the
 		// used assets
