@@ -33,13 +33,13 @@ const initializeAssets : InitializeAssets = async function(
 
 		const asset_type = entry.parents[0]
 		const url_part1 = "/" + entry.parents.slice(1).join("/") + "/" + entry.name
-		const resource_url = `${asset_type}:/` + path.normalize(
+		const asset_url = `${asset_type}:/` + path.normalize(
 			url_part1
 		)
 
 		if (asset_type === "text") {
 			assets.push({
-				url: resource_url,
+				url: asset_url,
 				type: asset_type,
 				data: (await fs.readFile(
 					entry.absolute_path
@@ -47,7 +47,7 @@ const initializeAssets : InitializeAssets = async function(
 			})
 		} else if (asset_type === "tsmodule") {
 			assets.push({
-				url: resource_url,
+				url: asset_url,
 				type: asset_type,
 				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
 					project_root, entry.absolute_path, getDependency, initializeAssets
