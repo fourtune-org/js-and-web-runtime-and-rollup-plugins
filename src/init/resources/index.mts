@@ -31,24 +31,24 @@ const initializeAssets : InitializeAssets = async function(
 		if (entry.type !== "regularFile") continue
 		if (!entry.parents.length) continue
 
-		const resource_type = entry.parents[0]
+		const asset_type = entry.parents[0]
 		const url_part1 = "/" + entry.parents.slice(1).join("/") + "/" + entry.name
-		const resource_url = `${resource_type}:/` + path.normalize(
+		const resource_url = `${asset_type}:/` + path.normalize(
 			url_part1
 		)
 
-		if (resource_type === "text") {
+		if (asset_type === "text") {
 			assets.push({
 				url: resource_url,
-				type: resource_type,
+				type: asset_type,
 				data: (await fs.readFile(
 					entry.absolute_path
 				)).toString()
 			})
-		} else if (resource_type === "tsmodule") {
+		} else if (asset_type === "tsmodule") {
 			assets.push({
 				url: resource_url,
-				type: resource_type,
+				type: asset_type,
 				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
 					project_root, entry.absolute_path, getDependency, initializeAssets
 				)
