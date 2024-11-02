@@ -16,7 +16,7 @@ export type InitializeAssets = (
 	is_in_static_ambient? : boolean
 ) => Promise<{assets: any[]}>
 
-function checkIfShouldSkipAsset(
+function checkIfShouldIncludeAsset(
 	used_assets : false|Map<string, 1>, asset_url : string
 ) : boolean {
 	if (used_assets === false) return true
@@ -50,6 +50,12 @@ const initializeAssets : InitializeAssets = async function(
 		base, project_root
 	)
 
+	if (used_assets === false) {
+		process.stderr.write(
+			`[!!!] could not determine which assets are used, including all of them.\n`
+		)
+	}
+
 	for (const entry of entries) {
 		if (entry.type !== "regularFile") continue
 		if (!entry.parents.length) continue
@@ -60,9 +66,15 @@ const initializeAssets : InitializeAssets = async function(
 			url_part1
 		)
 
-		if (checkIfShouldSkipAsset(
+		const skip = checkIfShouldIncludeAsset(
 			used_assets, asset_url
-		)) {
+		) === false
+
+		if (skip) {
+			process.stderr.write(
+				`skipping asset '${asset_url}'\n`
+			)
+
 			continue
 		}
 
