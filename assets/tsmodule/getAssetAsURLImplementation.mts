@@ -5,7 +5,7 @@ import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/assets/v0/"
 const cache = new Map()
 
 export function getAssetAsURLImplementation(
-	url : string, resource : ProjectAsset, resource_type : string
+	url : string, asset : ProjectAsset, asset_type : string
 ) {
 	if (cache.has(url)) {
 		return cache.get(url)
@@ -13,12 +13,12 @@ export function getAssetAsURLImplementation(
 
 	let content_type = "text/plain"
 
-	if (resource_type === "tsmodule") {
+	if (asset_type === "tsmodule") {
 		content_type = "text/javascript"
 	}
 
 	const {location} = createTemporaryResource(
-		resource, {
+		asset, {
 			type: content_type
 		}
 	)
