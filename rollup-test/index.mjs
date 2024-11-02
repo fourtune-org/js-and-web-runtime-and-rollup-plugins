@@ -5,8 +5,8 @@ import {
 } from "../dist/project.rollup/index.mjs"
 
 import {
-	factory as resourcesPluginFactory
-} from "../dist/resources.rollup/index.mjs"
+	factory as assetsPluginFactory
+} from "../dist/assets.rollup/index.mjs"
 
 import {factory} from "../dist/runtime.rollup/index.mjs"
 
@@ -20,7 +20,7 @@ const bundle = await rollup({
 	},
 	plugins:[
 		await projectPluginFactory("/tmp/pl/"),
-		await resourcesPluginFactory("/tmp/pl/"),
+		await assetsPluginFactory("/tmp/pl/"),
 		await factory("/tmp/pl/")
 	],
 	treeshake: true
