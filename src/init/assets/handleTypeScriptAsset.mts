@@ -85,7 +85,7 @@ export function loadResource(url) {
 	return await tsBundler(
 		project_root, entry_code, {
 			additional_plugins,
-			// never treeshake resources
+			// never treeshake assets
 			treeshake: false
 		}
 	)
