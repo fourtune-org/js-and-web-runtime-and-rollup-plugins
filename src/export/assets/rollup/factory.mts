@@ -1,7 +1,7 @@
 import {initializeAssets} from "#~src/init/assets/index.mts"
-import {loadResource} from "@fourtune/realm-js/resources"
+import {getAsset} from "@fourtune/realm-js/assets"
 
-const getAssetAsURLImplementation = loadResource(
+const getAssetAsURLImplementation = getAsset(
 	"tsmodule://getAssetAsURLImplementation.mts"
 )
 

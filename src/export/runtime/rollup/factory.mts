@@ -1,6 +1,6 @@
-import {loadResource} from "@fourtune/realm-js/resources"
+import {getAsset} from "@fourtune/realm-js/assets"
 
-const runtime_init = loadResource(
+const runtime_init = getAsset(
 	"tsmodule://runtime/initializeRuntime.mts"
 )
 
