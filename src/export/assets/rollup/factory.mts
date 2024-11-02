@@ -1,4 +1,4 @@
-import {initializeAssets} from "#~src/init/resources/index.mts"
+import {initializeAssets} from "#~src/init/assets/index.mts"
 import {loadResource} from "@fourtune/realm-js/resources"
 
 const getAssetAsURLImplementation = loadResource(

@@ -17,13 +17,13 @@
       "import": "./dist/project.rollup/index.mjs",
       "types": "./dist/project.rollup/index.d.mts"
     },
-    "./resources/node-api": {
-      "import": "./dist/resources.node/index.mjs",
-      "types": "./dist/resources.node/index.d.mts"
+    "./assets/node-api": {
+      "import": "./dist/assets.node/index.mjs",
+      "types": "./dist/assets.node/index.d.mts"
     },
-    "./resources/rollup-plugin": {
-      "import": "./dist/resources.rollup/index.mjs",
-      "types": "./dist/resources.rollup/index.d.mts"
+    "./assets/rollup-plugin": {
+      "import": "./dist/assets.rollup/index.mjs",
+      "types": "./dist/assets.rollup/index.d.mts"
     },
     "./runtime/node-api": {
       "import": "./dist/runtime.node/index.mjs",
