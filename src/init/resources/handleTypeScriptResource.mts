@@ -38,7 +38,7 @@ export default async function(
 	project_root : string,
 	entry_path : string,
 	getDependency : (dependency : string) => any,
-	init_resources : InitializeAssets
+	initializeAssets : InitializeAssets
 ) : Promise<string> {
 	const additional_plugins : JsBundlerPlugin[] = []
 
@@ -51,7 +51,7 @@ export default async function(
 		plugin: await projectRollupPlugin(project_root)
 	})
 
-	const static_resources = await init_resources(project_root, true)
+	const static_resources = await initializeAssets(project_root, true)
 
 	additional_plugins.push({
 		when: "pre",
