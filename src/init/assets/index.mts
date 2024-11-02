@@ -24,6 +24,9 @@ function checkIfShouldIncludeAsset(
 	return used_assets.has(asset_url)
 }
 
+// todo:
+// if we pass the input source file we might be able to
+// filter out assets on a per file basis?
 const initializeAssets : InitializeAssets = async function(
 	project_root : string | null,
 	is_in_static_ambient : boolean = false
