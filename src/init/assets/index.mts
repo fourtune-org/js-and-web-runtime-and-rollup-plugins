@@ -4,12 +4,25 @@ import {scandir} from "@anio-fs/scandir"
 import path from "node:path"
 import fs from "node:fs/promises"
 
+import type {
+	DefaultExportObject as BaseObject
+} from "@fourtune/types/base-realm-js-and-web/v0/"
+
+import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
 import handleTypeScriptAsset from "./handleTypeScriptAsset.mts"
 
 export type InitializeAssets = (
 	project_root : string | null,
 	is_in_static_ambient? : boolean
 ) => Promise<{assets: any[]}>
+
+function checkIfShouldSkipAsset(
+	used_assets : false|Map<string, 1>, asset_url : string
+) : boolean {
+	if (used_assets === false) return true
+
+	return used_assets.has(asset_url)
+}
 
 const initializeAssets : InitializeAssets = async function(
 	project_root : string | null,
@@ -19,13 +32,23 @@ const initializeAssets : InitializeAssets = async function(
 
 	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
 
+	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
+
+	const assets : {
+		url: string,
+		type: string,
+		data: string
+	}[] = []
+
 	const entries = (await scandir(
 		path.join(project_root, "assets"), {
 			allow_missing_dir: true
 		}
 	)) ?? []
 
-	let assets = []
+	const used_assets = await getListOfUsedProjectAssets(
+		base, project_root
+	)
 
 	for (const entry of entries) {
 		if (entry.type !== "regularFile") continue
@@ -36,6 +59,12 @@ const initializeAssets : InitializeAssets = async function(
 		const asset_url = `${asset_type}:/` + path.normalize(
 			url_part1
 		)
+
+		if (checkIfShouldSkipAsset(
+			used_assets, asset_url
+		)) {
+			continue
+		}
 
 		if (asset_type === "text") {
 			assets.push({
