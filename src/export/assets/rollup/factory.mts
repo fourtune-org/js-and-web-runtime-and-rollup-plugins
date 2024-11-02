@@ -55,7 +55,7 @@ export async function factory(project_root : string) {
 			if (id === `\0fourtune:getAssetAsURLImplementation`) {
 				return id
 			} else if (id === "@fourtune/realm-js/assets") {
-				return `\0fourtune:resources`
+				return `\0fourtune:assets`
 			}
 
 			return null
@@ -64,7 +64,7 @@ export async function factory(project_root : string) {
 		load(id : string) {
 			if (id === `\0fourtune:getAssetAsURLImplementation`) {
 				return getAssetAsURLImplementation
-			} else if (id === `\0fourtune:resources`) {
+			} else if (id === `\0fourtune:assets`) {
 				return {
 					code: `
 import {getAssetAsURLImplementation} from "\0fourtune:getAssetAsURLImplementation"
