@@ -9,7 +9,7 @@ import handleTypeScriptResource from "./handleTypeScriptResource.mts"
 export type InitializeAssets = (
 	project_root : string | null,
 	is_in_static_ambient? : boolean
-) => Promise<{resources: any[]}>
+) => Promise<{assets: any[]}>
 
 const initializeAssets : InitializeAssets = async function(
 	project_root : string | null,
@@ -25,7 +25,7 @@ const initializeAssets : InitializeAssets = async function(
 		}
 	)) ?? []
 
-	let resources = []
+	let assets = []
 
 	for (const entry of entries) {
 		if (entry.type !== "regularFile") continue
@@ -38,7 +38,7 @@ const initializeAssets : InitializeAssets = async function(
 		)
 
 		if (resource_type === "text") {
-			resources.push({
+			assets.push({
 				url: resource_url,
 				type: resource_type,
 				data: (await fs.readFile(
@@ -46,7 +46,7 @@ const initializeAssets : InitializeAssets = async function(
 				)).toString()
 			})
 		} else if (resource_type === "tsmodule") {
-			resources.push({
+			assets.push({
 				url: resource_url,
 				type: resource_type,
 				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
@@ -58,7 +58,7 @@ const initializeAssets : InitializeAssets = async function(
 		}
 	}
 
-	return {resources}
+	return {assets}
 }
 
 export {initializeAssets}

@@ -8,14 +8,14 @@ const loadResourceAsURLImplementation = loadResource(
 const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
 
 export async function factory(project_root : string) {
-	const {resources} = await initializeAssets(project_root)
+	const {assets} = await initializeAssets(project_root)
 
 	let resources_declarations = ``
 	let resources_lookup_fn = ``
 	let resources_lookup_fn2 = ``
 	let index = 0
 
-	for (const resource of resources) {
+	for (const resource of assets) {
 		let var_name = resource.url
 
 		var_name  = var_name.split("/").join("_s_")

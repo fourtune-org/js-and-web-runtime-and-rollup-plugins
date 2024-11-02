@@ -1,12 +1,12 @@
 import {initializeAssets} from "#~src/init/resources/index.mts"
 import {loadResourceAsURLImplementation} from "#~assets/loadResourceAsURLImplementation.mts"
 
-const {resources} = await initializeAssets(null)
+const {assets} = await initializeAssets(null)
 
 import type {ProjectResource} from "@fourtune/types/realm-js-and-web/resources/v0/"
 
 function _getResourceType(url : string) {
-	for (const resource of resources) {
+	for (const resource of assets) {
 		if (resource.url === url) {
 			return resource.type
 		}
@@ -18,7 +18,7 @@ function _getResourceType(url : string) {
 export type * from "@fourtune/types/realm-js-and-web/resources/v0/"
 
 export function loadResource(url : string) : ProjectResource {
-	for (const resource of resources) {
+	for (const resource of assets) {
 		if (resource.url === url) {
 			return resource.data
 		}
