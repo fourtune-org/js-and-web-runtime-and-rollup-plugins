@@ -13,7 +13,7 @@ import {factory} from "../dist/runtime.rollup/index.mjs"
 import {rollup} from "rollup"
 
 const bundle = await rollup({
-	input: "./rollup-test/entry.mjs",
+	input: "/tmp/pl/src/myfile.mts",
 	output: {
 		file: "/tmp/p.mjs",
 		format: "es"
