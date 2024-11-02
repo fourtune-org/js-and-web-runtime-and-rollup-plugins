@@ -1,11 +1,11 @@
 // @ts-ignore:next-line
 import createTemporaryResource from "@anio-js-foundation/create-temporary-resource"
-import type {ProjectResource} from "@fourtune/types/realm-js-and-web/resources/v0/"
+import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/assets/v0/"
 
 const cache = new Map()
 
 export function getAssetAsURLImplementation(
-	url : string, resource : ProjectResource, resource_type : string
+	url : string, resource : ProjectAsset, resource_type : string
 ) {
 	if (cache.has(url)) {
 		return cache.get(url)
