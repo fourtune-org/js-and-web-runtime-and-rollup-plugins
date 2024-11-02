@@ -57,7 +57,7 @@ export default async function(
 		when: "pre",
 		plugin: {
 			resolveId(id : string) {
-				if (id === "@fourtune/realm-js/resources") {
+				if (id === "@fourtune/realm-js/assets") {
 					return `\0fourtune:static_resources`
 				}
 

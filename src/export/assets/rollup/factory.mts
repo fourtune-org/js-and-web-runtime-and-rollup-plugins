@@ -54,7 +54,7 @@ export async function factory(project_root : string) {
 		resolveId(id : string) {
 			if (id === `\0fourtune:getAssetAsURLImplementation`) {
 				return id
-			} else if (id === "@fourtune/realm-js/resources") {
+			} else if (id === "@fourtune/realm-js/assets") {
 				return `\0fourtune:resources`
 			}
 
