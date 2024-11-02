@@ -4,7 +4,7 @@ import type {ProjectResource} from "@fourtune/types/realm-js-and-web/resources/v
 
 const cache = new Map()
 
-export function loadResourceAsURLImplementation(
+export function getAssetAsURLImplementation(
 	url : string, resource : ProjectResource, resource_type : string
 ) {
 	if (cache.has(url)) {

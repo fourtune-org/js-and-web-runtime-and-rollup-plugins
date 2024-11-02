@@ -1,8 +1,8 @@
 import {initializeAssets} from "#~src/init/resources/index.mts"
 import {loadResource} from "@fourtune/realm-js/resources"
 
-const loadResourceAsURLImplementation = loadResource(
-	"tsmodule://loadResourceAsURLImplementation.mts"
+const getAssetAsURLImplementation = loadResource(
+	"tsmodule://getAssetAsURLImplementation.mts"
 )
 
 const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
@@ -44,7 +44,7 @@ export async function factory(project_root : string) {
 		resources_lookup_fn += `\t}\n`
 
 		resources_lookup_fn2 += `\tif (url === ${JSON.stringify(resource.url)}) {\n`
-		resources_lookup_fn2 += `\t\treturn loadResourceAsURLImplementation(url, ${var_name}_data.slice(${resource_offset}), ${var_name}_type);\n`
+		resources_lookup_fn2 += `\t\treturn getAssetAsURLImplementation(url, ${var_name}_data.slice(${resource_offset}), ${var_name}_type);\n`
 		resources_lookup_fn2 += `\t}\n`
 	}
 
@@ -52,7 +52,7 @@ export async function factory(project_root : string) {
 		id: "plugin",
 
 		resolveId(id : string) {
-			if (id === `\0fourtune:loadResourceAsURLImplementation`) {
+			if (id === `\0fourtune:getAssetAsURLImplementation`) {
 				return id
 			} else if (id === "@fourtune/realm-js/resources") {
 				return `\0fourtune:resources`
@@ -62,12 +62,12 @@ export async function factory(project_root : string) {
 		},
 
 		load(id : string) {
-			if (id === `\0fourtune:loadResourceAsURLImplementation`) {
-				return loadResourceAsURLImplementation
+			if (id === `\0fourtune:getAssetAsURLImplementation`) {
+				return getAssetAsURLImplementation
 			} else if (id === `\0fourtune:resources`) {
 				return {
 					code: `
-import {loadResourceAsURLImplementation} from "\0fourtune:loadResourceAsURLImplementation"
+import {getAssetAsURLImplementation} from "\0fourtune:getAssetAsURLImplementation"
 
 ${resources_declarations}
 

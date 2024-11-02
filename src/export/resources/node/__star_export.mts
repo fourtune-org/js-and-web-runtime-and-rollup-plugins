@@ -1,5 +1,5 @@
 import {initializeAssets} from "#~src/init/resources/index.mts"
-import {loadResourceAsURLImplementation} from "#~assets/loadResourceAsURLImplementation.mts"
+import {getAssetAsURLImplementation} from "#~assets/getAssetAsURLImplementation.mts"
 
 const {assets} = await initializeAssets(null)
 
@@ -28,7 +28,7 @@ export function loadResource(url : string) : ProjectResource {
 }
 
 export function loadResourceAsURL(url : string) : string {
-	return loadResourceAsURLImplementation(
+	return getAssetAsURLImplementation(
 		url, loadResource(url), _getAssetType(url)
 	)
 }
