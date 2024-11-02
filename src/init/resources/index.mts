@@ -4,7 +4,7 @@ import {scandir} from "@anio-fs/scandir"
 import path from "node:path"
 import fs from "node:fs/promises"
 
-import handleTypeScriptResource from "./handleTypeScriptResource.mts"
+import handleTypeScriptAsset from "./handleTypeScriptAsset.mts"
 
 export type InitializeAssets = (
 	project_root : string | null,
@@ -49,7 +49,7 @@ const initializeAssets : InitializeAssets = async function(
 			assets.push({
 				url: asset_url,
 				type: asset_type,
-				data: is_in_static_ambient ? "<static>" : await handleTypeScriptResource(
+				data: is_in_static_ambient ? "<static>" : await handleTypeScriptAsset(
 					project_root, entry.absolute_path, getDependency, initializeAssets
 				)
 			})
