@@ -6,12 +6,12 @@ import fs from "node:fs/promises"
 
 import handleTypeScriptResource from "./handleTypeScriptResource.mts"
 
-export type InitializeResourcesData = (
+export type InitializeAssets = (
 	project_root : string | null,
 	is_in_static_ambient? : boolean
 ) => Promise<{resources: any[]}>
 
-const initializeResourcesData : InitializeResourcesData = async function(
+const initializeResourcesData : InitializeAssets = async function(
 	project_root : string | null,
 	is_in_static_ambient : boolean = false
 ) {

@@ -5,7 +5,7 @@ import type {
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 import {factory as projectRollupPlugin} from "#~src/export/project/rollup/factory.mts"
 
-import type {InitializeResourcesData} from "./index.mts"
+import type {InitializeAssets} from "./index.mts"
 
 async function getEntryCodeForResource(
 	base : BaseObject,
@@ -38,7 +38,7 @@ export default async function(
 	project_root : string,
 	entry_path : string,
 	getDependency : (dependency : string) => any,
-	init_resources : InitializeResourcesData
+	init_resources : InitializeAssets
 ) : Promise<string> {
 	const additional_plugins : JsBundlerPlugin[] = []
 
