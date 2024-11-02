@@ -5,6 +5,8 @@ const loadResourceAsURLImplementation = loadResource(
 	"tsmodule://loadResourceAsURLImplementation.mts"
 )
 
+const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
+
 export async function factory(project_root : string) {
 	const {resources} = await initializeResourcesData(project_root)
 
@@ -26,15 +28,23 @@ export async function factory(project_root : string) {
 		// declaration like this allows rollup to
 		// remove resources that are not loaded in
 		//
-		resources_declarations += `const ${var_name}_data = ${JSON.stringify(resource.data)}\n`
+		const resource_meta_data = `${resource.url.length},${resource.url},${resource.data.length};`
+		const resource_header = marker + ":" + resource_meta_data.length + ":" + resource_meta_data
+
+		resources_declarations += `const ${var_name}_data = ${JSON.stringify(
+			resource_header + resource.data
+		)}\n`
+
+		const resource_offset : number = resource_header.length
+
 		resources_declarations += `const ${var_name}_type = ${JSON.stringify(resource.type)}\n`
 
 		resources_lookup_fn += `\tif (url === ${JSON.stringify(resource.url)}) {\n`
-		resources_lookup_fn += `\t\treturn ${var_name}_data;\n`
+		resources_lookup_fn += `\t\treturn ${var_name}_data.slice(${resource_offset});\n`
 		resources_lookup_fn += `\t}\n`
 
 		resources_lookup_fn2 += `\tif (url === ${JSON.stringify(resource.url)}) {\n`
-		resources_lookup_fn2 += `\t\treturn loadResourceAsURLImplementation(url, ${var_name}_data, ${var_name}_type);\n`
+		resources_lookup_fn2 += `\t\treturn loadResourceAsURLImplementation(url, ${var_name}_data.slice(${resource_offset}), ${var_name}_type);\n`
 		resources_lookup_fn2 += `\t}\n`
 	}
 
