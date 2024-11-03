@@ -2,9 +2,11 @@ import resolveProjectRoot from "#~src/resolveProjectRoot.mjs"
 import {loadRealmDependencies} from "@fourtune/base-realm"
 
 import type {
-	DefaultExportObject as BaseObject
+	DefaultExportObject as BaseObject,
+	JsParseAssetURLResult
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
+import {getListOfAllAssets} from "./getListOfAllAssets.mts"
 import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
 
 export type InitializeAssets = (
@@ -25,23 +27,33 @@ const initializeAssets : InitializeAssets = async function(
 
 	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
-	const assets : {
+	const ret : {
 		url: string,
 		type: string,
 		data: string
 	}[] = []
 
-	const used_assets = await getListOfUsedProjectAssets(
+	let assets = await getListOfUsedProjectAssets(
 		base, project_root
 	)
 
-	if (used_assets === false) {
+	if (assets === false) {
 		process.stderr.write(
 			`[!!!] could not determine which assets are used, including all of them.\n`
 		)
+
+		assets = await getListOfAllAssets(base, project_root)
 	}
 
-	return {assets}
+	const project_assets : Map<
+		JsParseAssetURLResult, 1
+	> = assets
+
+	for (const [asset] of project_assets.entries()) {
+		console.log(asset)
+	}
+
+	return {assets: ret}
 }
 
 export {initializeAssets}
