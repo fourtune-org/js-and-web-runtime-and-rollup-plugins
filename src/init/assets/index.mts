@@ -6,17 +6,15 @@ import type {
 	JsParseAssetURLResult
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
+import type {Asset} from "./Asset.d.mts"
+
 import {getListOfAllAssets} from "./getListOfAllAssets.mts"
 import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
 import {getListOfUsedProjectAssetsInStaticContext} from "./getListOfUsedProjectAssetsInStaticContext.mts"
 import {createAssetData} from "./createAssetData.mts"
 
 export type InitializeAssetsResult = Promise<{
-	assets: {
-		url: string,
-		type: string,
-		data: string
-	}[],
+	assets: Asset[],
 	included_all_assets: boolean
 }>
 
@@ -55,11 +53,7 @@ const initializeAssets : InitializeAssets = async function(
 
 	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
-	const ret : {
-		url: string,
-		type: string,
-		data: string
-	}[] = []
+	const ret : Asset[] = []
 
 	let assets : false|Map<JsParseAssetURLResult, 1> = false
 
