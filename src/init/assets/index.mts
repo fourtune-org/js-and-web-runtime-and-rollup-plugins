@@ -21,8 +21,11 @@ const initializeAssets = async function(
 		url: string,
 		type: string,
 		data: string
-	}[]
+	}[],
+	included_all_assets: boolean
 }> {
+	let included_all_assets = false
+
 	project_root = await resolveProjectRoot(project_root)
 
 	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
@@ -40,9 +43,7 @@ const initializeAssets = async function(
 	)
 
 	if (assets === false) {
-		process.stderr.write(
-			`[!!!] could not determine which assets are used, including all of them.\n`
-		)
+		included_all_assets = true
 
 		assets = await getListOfAllAssets(base, project_root)
 	}
@@ -62,7 +63,8 @@ const initializeAssets = async function(
 	}
 
 	return {
-		assets: ret
+		assets: ret,
+		included_all_assets
 	}
 }
 
