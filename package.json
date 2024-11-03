@@ -43,7 +43,7 @@
     "@anio-software/fs": "^0.6.0",
     "@fourtune/base-realm": "^0.4.0",
     "@fourtune/realm-js": "^0.110.0-alpha.6",
-    "@fourtune/types": "^0.25.0",
+    "@fourtune/types": "^0.41.0",
     "@types/node": "^22.8.4",
     "fourtune": "^0.90.1"
   },
