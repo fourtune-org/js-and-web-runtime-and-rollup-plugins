@@ -21,7 +21,9 @@ export type InitializeAssetsResult = Promise<{
 
 export type InitializeAssets = (
 	project_root : string | null,
-	is_in_static_ambient? : boolean
+	is_in_static_ambient? : boolean,
+	// only relevant when in static ambient
+	asset_absolute_path? : string|null
 ) => InitializeAssetsResult
 
 // todo:
@@ -29,8 +31,21 @@ export type InitializeAssets = (
 // filter out assets on a per file basis?
 const initializeAssets : InitializeAssets = async function(
 	project_root : string | null,
-	is_in_static_ambient : boolean = false
+	is_in_static_ambient : boolean = false,
+	// only relevant when in static ambient
+	asset_absolute_path : string|null = null
 ) : InitializeAssetsResult {
+	// sanity check
+	if (is_in_static_ambient && !asset_absolute_path) {
+		throw new Error(
+			`It is an error to set is_in_static_ambient without also setting asset_absolute_path.`
+		)
+	} else if (!is_in_static_ambient && asset_absolute_path) {
+		throw new Error(
+			`It is an error to set asset_absolute_path without enabling is_in_static_ambient.`
+		)
+	}
+
 	let included_all_assets = false
 
 	project_root = await resolveProjectRoot(project_root)
@@ -60,6 +75,11 @@ const initializeAssets : InitializeAssets = async function(
 	> = assets
 
 	for (const [asset] of project_assets.entries()) {
+		// in static context, js-bundle will never be generated
+		if (asset.protocol === "js-bundle" && is_in_static_ambient) {
+			continue
+		}
+
 		ret.push({
 			url: `${asset.protocol}://${asset.path}`,
 			type: asset.protocol,
