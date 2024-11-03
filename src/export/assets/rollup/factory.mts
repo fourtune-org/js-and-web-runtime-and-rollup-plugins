@@ -22,6 +22,7 @@ export async function factory(project_root : string) {
 		var_name  = var_name.split(".").join("_d_")
 		var_name  = var_name.split(":").join("_c_")
 		var_name  = var_name.split("@").join("_at_")
+		var_name  = var_name.split("-").join("_h_")
 		var_name += "_" + (index++)
 
 		//
