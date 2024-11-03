@@ -7,6 +7,8 @@ import fs from "node:fs/promises"
 import {factory as projectRollupPlugin} from "#~src/export/project/rollup/factory.mts"
 import type {InitializeAssets} from "../index.mts"
 
+import {pluginFactory} from "../rollup/pluginFactory.mts"
+
 async function getEntryCode(
 	base : BaseObject,
 	absolute_path : string
@@ -51,6 +53,17 @@ export async function createJSBundle(
 	additional_plugins.push({
 		when: "pre",
 		plugin: await projectRollupPlugin(project_root)
+	})
+
+	const {assets} = await initializeAssets(
+		project_root, true, absolute_path
+	)
+
+	additional_plugins.push({
+		when: "pre",
+		plugin: await pluginFactory(
+			assets, "rollup-plugin-fourtune-static-assets"
+		)
 	})
 
 	return await tsBundler(

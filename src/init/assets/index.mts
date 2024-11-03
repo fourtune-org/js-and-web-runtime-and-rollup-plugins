@@ -8,6 +8,7 @@ import type {
 
 import {getListOfAllAssets} from "./getListOfAllAssets.mts"
 import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
+import {getListOfUsedProjectAssetsInStaticContext} from "./getListOfUsedProjectAssetsInStaticContext.mts"
 import {createAssetData} from "./createAssetData.mts"
 
 export type InitializeAssetsResult = Promise<{
@@ -60,9 +61,17 @@ const initializeAssets : InitializeAssets = async function(
 		data: string
 	}[] = []
 
-	let assets = await getListOfUsedProjectAssets(
-		base, project_root
-	)
+	let assets : false|Map<JsParseAssetURLResult, 1> = false
+
+	if (!is_in_static_ambient) {
+		assets = await getListOfUsedProjectAssets(
+			base, project_root
+		)
+	} else {
+		assets = await getListOfUsedProjectAssetsInStaticContext(
+			base, asset_absolute_path as string
+		)
+	}
 
 	if (assets === false) {
 		included_all_assets = true
