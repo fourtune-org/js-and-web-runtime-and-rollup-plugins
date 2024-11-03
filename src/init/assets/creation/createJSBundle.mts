@@ -5,6 +5,7 @@ import {
 
 import fs from "node:fs/promises"
 import {factory as projectRollupPlugin} from "#~src/export/project/rollup/factory.mts"
+import type {InitializeAssets} from "../index.mts"
 
 async function getEntryCode(
 	base : BaseObject,
@@ -36,7 +37,8 @@ async function getEntryCode(
 export async function createJSBundle(
 	project_root : string,
 	base : BaseObject,
-	absolute_path : string
+	absolute_path : string,
+	initializeAssets: InitializeAssets
 ) : Promise<string> {
 	const {tsBundler} = base
 

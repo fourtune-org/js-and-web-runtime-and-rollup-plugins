@@ -64,6 +64,7 @@ const initializeAssets : InitializeAssets = async function(
 			url: `${asset.protocol}://${asset.path}`,
 			type: asset.protocol,
 			data: await createAssetData(
+				initializeAssets,
 				project_root,
 				base,
 				asset.protocol,

@@ -4,10 +4,13 @@ import {
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
 import {createJSBundle} from "./creation/createJSBundle.mts"
+import type {InitializeAssets} from "./index.mts"
+
 import path from "node:path"
 import fs from "node:fs/promises"
 
 export async function createAssetData(
+	initializeAssets: InitializeAssets,
 	project_root : string,
 	base : BaseObject,
 	protocol : JsAssetURLProtocol,
@@ -19,7 +22,8 @@ export async function createAssetData(
 		return await createJSBundle(
 			project_root,
 			base,
-			absolute_path
+			absolute_path,
+			initializeAssets
 		)
 	} else if (protocol === "text") {
 		return (await fs.readFile(
