@@ -3,7 +3,8 @@ import {loadRealmDependencies} from "@fourtune/base-realm"
 
 import type {
 	DefaultExportObject as BaseObject,
-	JsParseAssetURLResult
+	JsParseAssetURLResult,
+	JsGetRequestedAssetsFromCodeResult
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
 import type {Asset} from "./Asset.d.mts"
@@ -53,31 +54,31 @@ const initializeAssets : InitializeAssets = async function(
 
 	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
 
-	const ret : Asset[] = []
-
-	let assets : false|Map<JsParseAssetURLResult, 1> = false
-
-	if (!is_in_static_ambient) {
-		assets = await getListOfUsedProjectAssets(
+	const tmp : JsGetRequestedAssetsFromCodeResult = await (
+		is_in_static_ambient ? getListOfUsedProjectAssetsInStaticContext(
+			base, asset_absolute_path as string
+		) : getListOfUsedProjectAssets(
 			base, project_root
 		)
-	} else {
-		assets = await getListOfUsedProjectAssetsInStaticContext(
-			base, asset_absolute_path as string
-		)
+	)
+
+	// project doesn't use any assets
+	if (!tmp.used) {
+		return {
+			assets: [],
+			included_all_assets: false
+		}
 	}
 
-	if (assets === false) {
-		included_all_assets = true
+	const project_assets = (
+		tmp.assets === "unknown"
+	) ? await getListOfAllAssets(
+		base, project_root
+	) : tmp.assets
 
-		assets = await getListOfAllAssets(base, project_root)
-	}
+	const ret : Asset[] = []
 
-	const project_assets : Map<
-		JsParseAssetURLResult, 1
-	> = assets
-
-	for (const [asset] of project_assets.entries()) {
+	for (const asset of project_assets) {
 		// in static context, js-bundle will never be generated
 		if (asset.protocol === "js-bundle" && is_in_static_ambient) {
 			continue
@@ -98,7 +99,7 @@ const initializeAssets : InitializeAssets = async function(
 
 	return {
 		assets: ret,
-		included_all_assets
+		included_all_assets: tmp.assets === "unknown"
 	}
 }
 
