@@ -10,15 +10,10 @@ import {getListOfAllAssets} from "./getListOfAllAssets.mts"
 import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
 import {createAssetData} from "./createAssetData.mts"
 
-export type InitializeAssets = (
-	project_root : string | null,
-	is_in_static_ambient? : boolean
-) => Promise<{assets: any[]}>
-
 // todo:
 // if we pass the input source file we might be able to
 // filter out assets on a per file basis?
-const initializeAssets : InitializeAssets = async function(
+const initializeAssets = async function(
 	project_root : string | null,
 	is_in_static_ambient : boolean = false
 ) {
