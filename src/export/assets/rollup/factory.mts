@@ -13,7 +13,10 @@ export async function factory(
 	project_root : string,
 	asset_reporter? : AssetReporter|null
 ) {
-	const {assets, included_all_assets} = await initializeAssets(project_root)
+	const {
+		assets,
+		included_all_assets
+	} = await initializeAssets(project_root)
 
 	if (typeof asset_reporter === "function") {
 		await asset_reporter(
