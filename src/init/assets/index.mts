@@ -16,7 +16,13 @@ import {createAssetData} from "./createAssetData.mts"
 const initializeAssets = async function(
 	project_root : string | null,
 	is_in_static_ambient : boolean = false
-) {
+) : Promise<{
+	assets: {
+		url: string,
+		type: string,
+		data: string
+	}[]
+}> {
 	project_root = await resolveProjectRoot(project_root)
 
 	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
@@ -55,7 +61,9 @@ const initializeAssets = async function(
 		})
 	}
 
-	return {assets: ret}
+	return {
+		assets: ret
+	}
 }
 
 export {initializeAssets}
