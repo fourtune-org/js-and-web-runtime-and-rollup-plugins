@@ -13,23 +13,20 @@ export async function factory(
 	project_root : string,
 	asset_reporter? : AssetReporter|null
 ) {
-	const {
-		assets,
-		included_all_assets
-	} = await initializeAssets(project_root)
+	const assets = await initializeAssets(project_root)
 
 	if (typeof asset_reporter === "function") {
 		await asset_reporter(
-			assets.map(({url, data}) => {
+			assets.list.map(({url, data}) => {
 				return {
 					url,
 					size: data.length
 				}
-			}), included_all_assets
+			}), assets.included_all_assets
 		)
 	}
 
 	return await pluginFactory(
-		assets, "rollup-plugin-fourtune-assets"
+		assets.list, "rollup-plugin-fourtune-assets"
 	)
 }

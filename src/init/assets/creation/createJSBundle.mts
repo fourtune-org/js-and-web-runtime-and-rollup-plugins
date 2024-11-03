@@ -55,14 +55,14 @@ export async function createJSBundle(
 		plugin: await projectRollupPlugin(project_root)
 	})
 
-	const {assets} = await initializeAssets(
+	const assets = await initializeAssets(
 		project_root, true, absolute_path
 	)
 
 	additional_plugins.push({
 		when: "pre",
 		plugin: await pluginFactory(
-			assets, "rollup-plugin-fourtune-static-assets"
+			assets.list, "rollup-plugin-fourtune-static-assets"
 		)
 	})
 

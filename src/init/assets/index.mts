@@ -15,11 +15,11 @@ import {getListOfUsedProjectAssetsInStaticContext} from "./getListOfUsedProjectA
 import {createAssetData} from "./createAssetData.mts"
 
 export type InitializeAssetsResult = Promise<{
-	assets: Asset[],
+	list: Asset[],
 	included_all_assets: true,
 	reason: JsGetRequestedAssetsFromCodeReason
 } | {
-	assets: Asset[],
+	list: Asset[],
 	included_all_assets: false
 }>
 
@@ -67,7 +67,7 @@ const initializeAssets : InitializeAssets = async function(
 	// project doesn't use any assets
 	if (!tmp.used) {
 		return {
-			assets: [],
+			list: [],
 			included_all_assets: false
 		}
 	}
@@ -102,7 +102,7 @@ const initializeAssets : InitializeAssets = async function(
 	}
 
 	return {
-		assets: ret,
+		list: ret,
 		included_all_assets: tmp.assets === "unknown",
 		reason
 	}
