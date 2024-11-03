@@ -5,7 +5,7 @@
 import {getAsset} from "@fourtune/realm-js/assets"
 
 const getAssetAsURLImplementation = getAsset(
-	"js-bundle://tsmodule/getAssetAsURLImplementation.mts"
+	"js-bundle://getAssetAsURLImplementation.mts"
 )
 
 import type {Asset} from "../Asset.d.mts"
