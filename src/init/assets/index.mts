@@ -8,6 +8,7 @@ import type {
 
 import {getListOfAllAssets} from "./getListOfAllAssets.mts"
 import {getListOfUsedProjectAssets} from "./getListOfUsedProjectAssets.mts"
+import {createAssetData} from "./createAssetData.mts"
 
 export type InitializeAssets = (
 	project_root : string | null,
@@ -50,7 +51,13 @@ const initializeAssets : InitializeAssets = async function(
 	> = assets
 
 	for (const [asset] of project_assets.entries()) {
-		console.log(asset)
+		ret.push({
+			url: `${asset.protocol}://${asset.path}`,
+			type: asset.protocol,
+			data: await createAssetData(
+				project_root, base, asset.protocol, asset.path
+			)
+		})
 	}
 
 	return {assets: ret}
