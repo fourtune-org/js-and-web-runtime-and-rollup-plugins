@@ -20,10 +20,10 @@ function getSupportedProtocolsByExtension(name : string) : JsAssetURLProtocol[] 
 
 export async function getListOfAllAssets(
 	base : BaseObject, project_root : string
-) : Promise<Map<JsParseAssetURLResult, 1>> {
+) : Promise<JsParseAssetURLResult[]> {
 	const {jsParseAssetURL} = base
 
-	const ret = new Map()
+	const ret = []
 
 	const entries = (await scandir(
 		path.join(project_root, "assets"), {
@@ -38,8 +38,8 @@ export async function getListOfAllAssets(
 		const protocols = getSupportedProtocolsByExtension(entry.name)
 
 		for (const protocol of protocols) {
-			ret.set(
-				jsParseAssetURL(`${protocol}://${entry.relative_path}`), 1
+			ret.push(
+				jsParseAssetURL(`${protocol}://${entry.relative_path}`)
 			)
 		}
 	}
