@@ -10,7 +10,7 @@ import {
 
 import {factory} from "../dist/runtime.rollup/index.mjs"
 
-import {rollup} from "rollup"
+import {rollup} from "/tmp/pl/node_modules/rollup/dist/rollup.js"
 
 const bundle = await rollup({
 	input: "/tmp/pl/src/myfile.mts",
@@ -31,6 +31,6 @@ const {output} = await bundle.generate({
 	format: "es"
 })
 
-console.log(output[0].code)
+//console.log(output[0].code)
 
 await fs.writeFile("/tmp/p.mjs", output[0].code)
