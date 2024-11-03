@@ -1,7 +1,7 @@
 import {getAsset} from "@fourtune/realm-js/assets"
 
 const runtime_init = getAsset(
-	"tsmodule://runtime/initializeRuntime.mts"
+	"js-bundle://tsmodule/runtime/initializeRuntime.mts"
 )
 
 import {factory as projectPluginFactory} from "#~src/export/project/rollup/factory.mts"

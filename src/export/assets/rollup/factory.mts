@@ -2,7 +2,7 @@ import {initializeAssets} from "#~src/init/assets/index.mts"
 import {getAsset} from "@fourtune/realm-js/assets"
 
 const getAssetAsURLImplementation = getAsset(
-	"tsmodule://getAssetAsURLImplementation.mts"
+	"js-bundle://tsmodule/getAssetAsURLImplementation.mts"
 )
 
 const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
