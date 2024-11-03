@@ -7,8 +7,30 @@ const getAssetAsURLImplementation = getAsset(
 
 const marker = `bc0f0b62-2d9a-4f26-915f-4c5a78b9a526`
 
-export async function factory(project_root : string) {
-	const {assets} = await initializeAssets(project_root)
+type AssetReporter = (
+	assets: {
+		url : string,
+		size : number
+	}[],
+	included_all_assets: boolean
+) => any
+
+export async function factory(
+	project_root : string,
+	asset_reporter? : AssetReporter|null
+) {
+	const {assets, included_all_assets} = await initializeAssets(project_root)
+
+	if (typeof asset_reporter === "function") {
+		await asset_reporter(
+			assets.map(({url, data}) => {
+				return {
+					url,
+					size: data.length
+				}
+			}), included_all_assets
+		)
+	}
 
 	let assets_declarations = ``
 	let assets_lookup_fn = ``
