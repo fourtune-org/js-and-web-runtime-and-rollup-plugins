@@ -46,8 +46,6 @@ const initializeAssets : InitializeAssets = async function(
 		)
 	}
 
-	let included_all_assets = false
-
 	project_root = await resolveProjectRoot(project_root)
 
 	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
