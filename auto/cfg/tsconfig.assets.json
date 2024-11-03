@@ -4,6 +4,6 @@
         "paths": {}
     },
     "include": [
-        "../../assets/tsmodule/**/*"
+        "../../assets/**/*"
     ]
 }

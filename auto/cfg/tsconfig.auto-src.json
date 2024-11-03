@@ -9,7 +9,7 @@
                 "./auto/src/*"
             ],
             "#~assets/*": [
-                "./assets/tsmodule/*"
+                "./assets/*"
             ]
         }
     },
