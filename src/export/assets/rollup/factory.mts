@@ -6,7 +6,8 @@ type AssetReporter = (
 		url : string,
 		size : number
 	}[],
-	included_all_assets: boolean
+	included_all_assets: boolean,
+	reason: string
 ) => any
 
 export async function factory(
@@ -16,13 +17,15 @@ export async function factory(
 	const assets = await initializeAssets(project_root)
 
 	if (typeof asset_reporter === "function") {
+		const reason = ("reason" in assets) ? assets.reason : ""
+
 		await asset_reporter(
 			assets.list.map(({url, data}) => {
 				return {
 					url,
 					size: data.length
 				}
-			}), assets.included_all_assets
+			}), assets.included_all_assets, reason
 		)
 	}
 
