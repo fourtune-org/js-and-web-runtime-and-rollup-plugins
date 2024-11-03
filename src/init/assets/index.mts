@@ -3,7 +3,7 @@ import {loadRealmDependencies} from "@fourtune/base-realm"
 
 import type {
 	DefaultExportObject as BaseObject,
-	JsParseAssetURLResult,
+	JsGetRequestedAssetsFromCodeReason,
 	JsGetRequestedAssetsFromCodeResult
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
@@ -16,7 +16,11 @@ import {createAssetData} from "./createAssetData.mts"
 
 export type InitializeAssetsResult = Promise<{
 	assets: Asset[],
-	included_all_assets: boolean
+	included_all_assets: true,
+	reason: JsGetRequestedAssetsFromCodeReason
+} | {
+	assets: Asset[],
+	included_all_assets: false
 }>
 
 export type InitializeAssets = (
@@ -68,6 +72,8 @@ const initializeAssets : InitializeAssets = async function(
 		}
 	}
 
+	const reason = ("reason" in tmp) ? tmp.reason : "unknown"
+
 	const project_assets = (
 		tmp.assets === "unknown"
 	) ? await getListOfAllAssets(
@@ -97,7 +103,8 @@ const initializeAssets : InitializeAssets = async function(
 
 	return {
 		assets: ret,
-		included_all_assets: tmp.assets === "unknown"
+		included_all_assets: tmp.assets === "unknown",
+		reason
 	}
 }
 
