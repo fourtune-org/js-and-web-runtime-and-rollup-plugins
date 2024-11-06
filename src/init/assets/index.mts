@@ -1,5 +1,5 @@
 import resolveProjectRoot from "#~src/resolveProjectRoot.mjs"
-import {loadRealmDependencies} from "@fourtune/base-realm"
+import core from "@fourtune/core"
 
 import type {
 	DefaultExportObject as BaseObject,
@@ -52,9 +52,7 @@ const initializeAssets : InitializeAssets = async function(
 
 	project_root = await resolveProjectRoot(project_root)
 
-	const {getDependency} = await loadRealmDependencies(project_root, "realm-js")
-
-	const base : BaseObject = getDependency("@fourtune/base-realm-js-and-web")
+	const base : BaseObject = (await core.loadRealmDependency(project_root, "js", "@fourtune/base-realm-js-and-web")).dependency
 
 	const tmp : JsGetRequestedAssetsFromCodeResult = await (
 		is_in_static_ambient ? getListOfUsedProjectAssetsInStaticContext(
