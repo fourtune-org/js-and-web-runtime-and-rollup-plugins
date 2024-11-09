@@ -6,12 +6,14 @@ export default function(
 	level : LogLevel,
 	lines : string[]
 ) {
-	if (!this.options.shouldLog.call(this, level, "", "")) {
+	const package_name = this.project.package_json.name
+
+	if (!this.options.shouldLog.call(this, level, package_name, "")) {
 		return
 	}
 
 	// todo: add bundle identifier?
-	let first_line = `[${level.padStart(5, " ")}] <${this.project.package_json.name}> `
+	let first_line = `[${level.padStart(5, " ")}] <${package_name}> `
 	let padding = " ".repeat(first_line.length)
 
 	const log_message = lines.map(arg => {
