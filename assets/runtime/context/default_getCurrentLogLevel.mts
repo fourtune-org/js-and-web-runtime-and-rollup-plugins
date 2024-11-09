@@ -1,6 +1,7 @@
 import type {
 	ContextInstance,
-	LogLevel
+	LogLevel,
+	ContextOptionsGetCurrentLogLevel as Impl
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 import logLevelToNumber from "../logLevelToNumber.mts"
@@ -11,7 +12,7 @@ function toLowerCase(v : any) {
 	return v.toLowerCase()
 }
 
-export default function(
+const impl : Impl = function(
 	context: ContextInstance
 ) : LogLevel {
 	let current_log_level = "info"
@@ -34,3 +35,5 @@ export default function(
 
 	return current_log_level as LogLevel
 }
+
+export default impl

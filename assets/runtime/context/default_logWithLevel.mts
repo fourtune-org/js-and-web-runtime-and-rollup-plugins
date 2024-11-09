@@ -1,9 +1,10 @@
 import type {
 	LogLevel,
-	ContextInstance
+	ContextInstance,
+	ContextOptionsLogWithLevel as Impl
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
-export default function(
+const impl : Impl = function(
 	context: ContextInstance,
 	level : LogLevel,
 	lines : string[]
@@ -43,3 +44,5 @@ export default function(
 		context, str.slice(0, str.length - 1)
 	)
 }
+
+export default impl

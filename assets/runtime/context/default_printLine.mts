@@ -1,8 +1,9 @@
 import type {
-	ContextInstance
+	ContextInstance,
+	ContextOptionsPrintLine as Impl
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
-export default function(
+const impl : Impl = function(
 	context: ContextInstance,
 	line : string
 ) {
@@ -12,3 +13,5 @@ export default function(
 		console.log(line)
 	}
 }
+
+export default impl

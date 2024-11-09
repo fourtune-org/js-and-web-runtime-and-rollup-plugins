@@ -1,10 +1,11 @@
 import type {
 	LogLevel,
-	ContextInstance
+	ContextInstance,
+	ContextOptionsShouldLog as Impl
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 import logLevelToNumber from "../logLevelToNumber.mts"
 
-export default function(
+const impl : Impl = function(
 	context: ContextInstance,
 	level : LogLevel,
 	package_name : string,
@@ -20,3 +21,5 @@ export default function(
 
 	return !(message_log_level > current_log_level)
 }
+
+export default impl
