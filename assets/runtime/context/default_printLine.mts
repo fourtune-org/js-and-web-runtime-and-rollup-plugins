@@ -7,6 +7,8 @@ const impl : Impl = function(
 	context: ContextInstance,
 	line : string
 ) {
+	void context;
+
 	if (typeof process === "object") {
 		process.stderr.write(`${line}\n`)
 	} else if (typeof console === "object") {
