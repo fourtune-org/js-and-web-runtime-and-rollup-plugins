@@ -11,7 +11,7 @@ export default function(
 	}
 
 	// todo: add bundle identifier?
-	let first_line = `[${level.padStart(5, " ")}] <> ` //${this.package_json.name}
+	let first_line = `[${level.padStart(5, " ")}] <${this.project.package_json.name}> `
 	let padding = " ".repeat(first_line.length)
 
 	const log_message = lines.map(arg => {
