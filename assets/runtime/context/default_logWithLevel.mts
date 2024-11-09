@@ -1,5 +1,7 @@
-import type {LogLevel} from "@fourtune/types/realm-js-and-web/v0/runtime"
-import type {ContextInstance} from "@fourtune/types/realm-js-and-web/v0/runtime"
+import type {
+	LogLevel,
+	ContextInstance
+} from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 export default function(
 	context: ContextInstance,
