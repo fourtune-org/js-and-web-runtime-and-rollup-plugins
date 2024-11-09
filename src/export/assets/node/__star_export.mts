@@ -3,7 +3,7 @@ import {getAssetAsURLImplementation} from "#~assets/getAssetAsURLImplementation.
 
 const assets = await initializeAssets(null)
 
-import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/assets/v0/"
+import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/v0/assets"
 
 function _getAssetType(url : string) {
 	for (const asset of assets.list) {
@@ -15,7 +15,7 @@ function _getAssetType(url : string) {
 	throw new Error(`Unable to locate asset "${url}" (dynamic).`)
 }
 
-export type * from "@fourtune/types/realm-js-and-web/assets/v0/"
+export type * from "@fourtune/types/realm-js-and-web/v0/assets"
 
 export function getAsset(url : string) : ProjectAsset {
 	for (const asset of assets.list) {

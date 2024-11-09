@@ -1,7 +1,7 @@
 import type {
 	ExportObject,
 	DefaultExportObject,
-} from "@fourtune/types/realm-js-and-web/project/v0/"
+} from "@fourtune/types/realm-js-and-web/v0/project"
 
 import * as project from "#~src/export/project/node/__index.mts"
 import def_export from "#~src/export/project/node/__index.mts"

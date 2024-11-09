@@ -1,7 +1,7 @@
 import fs from "node:fs/promises"
 import path from "node:path"
 import resolveProjectRoot from "#~src/resolveProjectRoot.mts"
-import type {Project} from "@fourtune/types/realm-js-and-web/project/v0/"
+import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
 
 export async function initializeProjectData(
 	project_root : string | null

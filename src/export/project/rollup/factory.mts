@@ -8,7 +8,7 @@ export async function factory(project_root : string) {
 		id: "plugin",
 
 		resolveId(id : string) {
-			if (id === "@fourtune/realm-js/project") {
+			if (id === "@fourtune/realm-js/v0/project") {
 				return `\0fourtune:project`
 			}
 

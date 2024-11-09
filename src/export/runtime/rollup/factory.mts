@@ -20,7 +20,7 @@ export async function factory(project_root : string) {
 
 			if (id === `\0fourtune:runtime-init`) {
 				return id
-			} else if (id === "@fourtune/realm-js/runtime") {
+			} else if (id === "@fourtune/realm-js/v0/runtime") {
 				return `\0fourtune:runtime`
 			}
 
@@ -37,7 +37,7 @@ export async function factory(project_root : string) {
 			} else if (id === `\0fourtune:runtime`) {
 				return `
 import initializeRuntime from "\0fourtune:runtime-init"
-import {getProjectPackageJSON, getFourtuneConfiguration} from "@fourtune/realm-js/project"
+import {getProjectPackageJSON, getFourtuneConfiguration} from "@fourtune/realm-js/v0/project"
 
 const project = {
 	package_json: getProjectPackageJSON(),

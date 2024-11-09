@@ -1,4 +1,4 @@
-import type {ContextInstance, LogLevel} from "@fourtune/types/realm-js-and-web/runtime/v0/"
+import type {ContextInstance, LogLevel} from "@fourtune/types/realm-js-and-web/v0/runtime"
 import logLevelToNumber from "../logLevelToNumber.mts"
 
 function toLowerCase(v : any) {

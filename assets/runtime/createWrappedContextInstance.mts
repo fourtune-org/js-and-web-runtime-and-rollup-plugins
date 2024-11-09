@@ -8,7 +8,7 @@ import type {
 	ContextInstance,
 	WrappedContext,
 	ContextOptions
-} from "@fourtune/types/realm-js-and-web/runtime/v0/"
+} from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 export default function(project : Project, {
 	tag                = "",

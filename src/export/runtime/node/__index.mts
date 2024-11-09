@@ -4,7 +4,7 @@ import initializeRuntime from "#~assets/runtime/initializeRuntime.mts"
 
 const project = await initializeProjectData(null)
 
-export type * from "@fourtune/types/realm-js-and-web/runtime/v0/"
+export type * from "@fourtune/types/realm-js-and-web/v0/runtime"
 //-- glue code start ; do not remove or edit this line --//
 const {
 	createDefaultContext,

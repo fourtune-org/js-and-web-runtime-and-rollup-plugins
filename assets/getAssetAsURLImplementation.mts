@@ -1,6 +1,6 @@
 // @ts-ignore:next-line
 import createTemporaryResource from "@anio-js-foundation/create-temporary-resource"
-import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/assets/v0/"
+import type {ProjectAsset} from "@fourtune/types/realm-js-and-web/v0/assets"
 
 const cache = new Map()
 

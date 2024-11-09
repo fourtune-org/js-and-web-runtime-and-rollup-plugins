@@ -1,6 +1,6 @@
 import type {
 	ExportObject
-} from "@fourtune/types/realm-js-and-web/assets/v0/"
+} from "@fourtune/types/realm-js-and-web/v0/assets"
 
 import * as project from "#~src/export/assets/node/__star_export.mts"
 

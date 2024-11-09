@@ -21,7 +21,7 @@ export async function pluginFactory(
 		resolveId(id : string) {
 			if (id === `\0fourtune:getAssetAsURLImplementation`) {
 				return id
-			} else if (id === "@fourtune/realm-js/assets") {
+			} else if (id === "@fourtune/realm-js/v0/assets") {
 				return `\0fourtune:assets`
 			}
 

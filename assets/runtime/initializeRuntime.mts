@@ -6,7 +6,7 @@ import type {
 	Project,
 	UserContext,
 	ContextOptions
-} from "@fourtune/types/realm-js-and-web/runtime/v0/"
+} from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 import isWrappedContext from "./isWrappedContext.mts"
 import createWrappedContextInstance from "./createWrappedContextInstance.mts"
