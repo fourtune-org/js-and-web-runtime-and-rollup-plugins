@@ -8,6 +8,9 @@ export default function(
 	package_name : string,
 	tag : string
 ) {
+	void package_name;
+	void tag;
+
 	const message_log_level = logLevelToNumber(level)
 	const current_log_level = logLevelToNumber(this.options.getCurrentLogLevel.call(this))
 
