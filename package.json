@@ -45,7 +45,7 @@
     "@fourtune/realm-js": "^0.510.0-alpha.0",
     "@fourtune/types": "^0.50.1",
     "@types/node": "^22.8.4",
-    "fourtune": "^0.510.0"
+    "fourtune": "^0.600.0"
   },
   "files": [
     "./dist/"
