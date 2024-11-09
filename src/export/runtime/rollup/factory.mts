@@ -1,4 +1,4 @@
-import {getAsset} from "@fourtune/realm-js/assets"
+import {getAsset} from "@fourtune/realm-js/v0/assets"
 
 const runtime_init = getAsset(
 	"js-bundle://runtime/initializeRuntime.mts"

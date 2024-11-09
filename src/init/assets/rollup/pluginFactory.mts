@@ -2,7 +2,7 @@
 // this is both used by the normal rollup plugin and
 // rollup plugin specificially for assets
 //
-import {getAsset} from "@fourtune/realm-js/assets"
+import {getAsset} from "@fourtune/realm-js/v0/assets"
 
 const getAssetAsURLImplementation = getAsset(
 	"js-bundle://getAssetAsURLImplementation.mts"
