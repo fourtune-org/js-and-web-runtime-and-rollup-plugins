@@ -6,9 +6,10 @@ export default function(
 	level : LogLevel,
 	lines : string[]
 ) {
+	const tag = this.options.tag
 	const package_name = this.project.package_json.name
 
-	if (!this.options.shouldLog.call(this, level, package_name, "")) {
+	if (!this.options.shouldLog.call(this, level, package_name, tag)) {
 		return
 	}
 
