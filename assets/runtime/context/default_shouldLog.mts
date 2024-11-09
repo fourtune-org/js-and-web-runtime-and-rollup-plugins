@@ -12,7 +12,9 @@ export default function(
 	void tag;
 
 	const message_log_level = logLevelToNumber(level)
-	const current_log_level = logLevelToNumber(this.options.getCurrentLogLevel.call(this))
+	const current_log_level = logLevelToNumber(
+		this.options.getCurrentLogLevel.call(this)
+	)
 
 	return !(message_log_level > current_log_level)
 }
