@@ -8,7 +8,7 @@ function toLowerCase(v : any) {
 }
 
 export default function(
-	this: ContextInstance
+	context: ContextInstance
 ) : LogLevel {
 	let current_log_level = "info"
 
@@ -23,7 +23,7 @@ export default function(
 	}
 
 	if (logLevelToNumber(current_log_level) === -1) {
-		this.options.printLine.call(this, `Warning: invalid log level '${current_log_level}'`)
+		context.options.printLine(context, `Warning: invalid log level '${current_log_level}'`)
 
 		current_log_level = "info"
 	}

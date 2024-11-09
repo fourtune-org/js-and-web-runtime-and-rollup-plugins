@@ -2,14 +2,14 @@ import type {LogLevel} from "@fourtune/types/realm-js-and-web/v0/runtime"
 import type {ContextInstance} from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 export default function(
-	this: ContextInstance,
+	context: ContextInstance,
 	level : LogLevel,
 	lines : string[]
 ) {
-	const tag = this.options.tag
-	const package_name = this.project.package_json.name
+	const tag = context.options.tag
+	const package_name = context.project.package_json.name
 
-	if (!this.options.shouldLog.call(this, level, package_name, tag)) {
+	if (!context.options.shouldLog(context, level, package_name, tag)) {
 		return
 	}
 
@@ -37,7 +37,7 @@ export default function(
 		str += `${current_line}\n`
 	}
 
-	this.options.printLine.call(
-		this, str.slice(0, str.length - 1)
+	context.options.printLine(
+		context, str.slice(0, str.length - 1)
 	)
 }

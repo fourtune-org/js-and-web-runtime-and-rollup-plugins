@@ -3,7 +3,7 @@ import type {ContextInstance} from "@fourtune/types/realm-js-and-web/v0/runtime"
 import logLevelToNumber from "../logLevelToNumber.mts"
 
 export default function(
-	this: ContextInstance,
+	context: ContextInstance,
 	level : LogLevel,
 	package_name : string,
 	tag : string
@@ -13,7 +13,7 @@ export default function(
 
 	const message_log_level = logLevelToNumber(level)
 	const current_log_level = logLevelToNumber(
-		this.options.getCurrentLogLevel.call(this)
+		context.options.getCurrentLogLevel(context)
 	)
 
 	return !(message_log_level > current_log_level)
