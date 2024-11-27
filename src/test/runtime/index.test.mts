@@ -2,6 +2,6 @@ import type {
 	ExportObject
 } from "@fourtune/types/realm-js-and-web/runtime"
 
-import {useContext} from "#~src/export/runtime/useContext.mts"
+import * as runtime from "#~src/export/runtime/__star_export.mts"
 
-useContext satisfies ExportObject["useContext"]
+runtime satisfies ExportObject
