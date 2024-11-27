@@ -1,4 +1,5 @@
 import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
+import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-web/runtime"
 
 import default_getCurrentLogLevel from "./context/default_getCurrentLogLevel.mts"
 import default_printLine from "./context/default_printLine.mts"
@@ -7,7 +8,6 @@ import default_shouldLog from "./context/default_shouldLog.mts"
 
 import type {
 	ContextInstance,
-	WrappedContext,
 	ContextOptions,
 	LogLevel
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
@@ -18,7 +18,7 @@ export default function(project : Project, {
 	printLine          = default_printLine,
 	logWithLevel       = default_logWithLevel,
 	shouldLog          = default_shouldLog
-} = {}) : WrappedContext {
+} = {}) : RuntimeWrappedContextInstance {
 	const options : ContextOptions = {
 		tag,
 		getCurrentLogLevel,
