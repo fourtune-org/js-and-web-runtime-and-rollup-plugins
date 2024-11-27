@@ -13,7 +13,7 @@ function initializeRuntime(
 	current_project : Project
 ) : DefaultExportObject {
 	return {
-		createDefaultContext(
+		createContext(
 			instance_or_options: RuntimeWrappedContextInstance|Partial<ContextOptions>|undefined
 		) : RuntimeWrappedContextInstance {
 			// handle "undefined" case
