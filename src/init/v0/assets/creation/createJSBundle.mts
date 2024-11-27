@@ -4,7 +4,7 @@ import {
 } from "@fourtune/types/base-realm-js-and-web/v0/"
 
 import fs from "node:fs/promises"
-import {factory as projectRollupPlugin} from "#~src/export/project/rollup/factory.mts"
+import {factory as projectRollupPlugin} from "#~src/export/v0/project/rollup/factory.mts"
 import type {InitializeAssets} from "../index.mts"
 
 import {pluginFactory} from "../rollup/pluginFactory.mts"

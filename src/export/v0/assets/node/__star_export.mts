@@ -1,4 +1,4 @@
-import {initializeAssets} from "#~src/init/assets/index.mts"
+import {initializeAssets} from "#~src/init/v0/assets/index.mts"
 import {getAssetAsURLImplementation} from "#~assets/getAssetAsURLImplementation.mts"
 
 const assets = await initializeAssets(null)

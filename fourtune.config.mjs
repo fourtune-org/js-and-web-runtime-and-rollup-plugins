@@ -33,13 +33,13 @@ export default {
 
 	autogenerate: {
 		"src/project_gluecode.mts": async function(fourtune_session) {
-			const file = path.join("src", "export", "project", "node", "__index.mts")
+			const file = path.join("src", "export", "v0", "project", "node", "__index.mts")
 
 			return await createGlueCodeFromFile(fourtune_session, file)
 		},
 
 		"src/runtime_gluecode.mts": async function(fourtune_session) {
-			const file = path.join("src", "export", "runtime", "node", "__index.mts")
+			const file = path.join("src", "export", "v0", "runtime", "node", "__index.mts")
 
 			return await createGlueCodeFromFile(fourtune_session, file)
 		}

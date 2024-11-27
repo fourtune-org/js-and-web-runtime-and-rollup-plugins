@@ -9,29 +9,29 @@
     "url": "git+https://github.com/fourtune-org/js-and-web-runtime-and-rollup-plugins.git"
   },
   "exports": {
-    "./project/node-api": {
-      "import": "./dist/project.node/index.mjs",
-      "types": "./dist/project.node/index.d.mts"
+    "./v0/project/node-api": {
+      "import": "./dist/v0.project.node/index.mjs",
+      "types": "./dist/v0.project.node/index.d.mts"
     },
-    "./project/rollup-plugin": {
-      "import": "./dist/project.rollup/index.mjs",
-      "types": "./dist/project.rollup/index.d.mts"
+    "./v0/project/rollup-plugin": {
+      "import": "./dist/v0.project.rollup/index.mjs",
+      "types": "./dist/v0.project.rollup/index.d.mts"
     },
-    "./assets/node-api": {
-      "import": "./dist/assets.node/index.mjs",
-      "types": "./dist/assets.node/index.d.mts"
+    "./v0/assets/node-api": {
+      "import": "./dist/v0.assets.node/index.mjs",
+      "types": "./dist/v0.assets.node/index.d.mts"
     },
-    "./assets/rollup-plugin": {
-      "import": "./dist/assets.rollup/index.mjs",
-      "types": "./dist/assets.rollup/index.d.mts"
+    "./v0/assets/rollup-plugin": {
+      "import": "./dist/v0.assets.rollup/index.mjs",
+      "types": "./dist/v0.assets.rollup/index.d.mts"
     },
-    "./runtime/node-api": {
-      "import": "./dist/runtime.node/index.mjs",
-      "types": "./dist/runtime.node/index.d.mts"
+    "./v0/runtime/node-api": {
+      "import": "./dist/v0.runtime.node/index.mjs",
+      "types": "./dist/v0.runtime.node/index.d.mts"
     },
-    "./runtime/rollup-plugin": {
-      "import": "./dist/runtime.rollup/index.mjs",
-      "types": "./dist/runtime.rollup/index.d.mts"
+    "./v0/runtime/rollup-plugin": {
+      "import": "./dist/v0.runtime.rollup/index.mjs",
+      "types": "./dist/v0.runtime.rollup/index.d.mts"
     }
   },
   "scripts": {

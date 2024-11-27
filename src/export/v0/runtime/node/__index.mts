@@ -1,4 +1,4 @@
-import {initializeProjectData} from "#~src/init/project/index.mts"
+import {initializeProjectData} from "#~src/init/v0/project/index.mts"
 
 import initializeRuntime from "#~assets/runtime/initializeRuntime.mts"
 

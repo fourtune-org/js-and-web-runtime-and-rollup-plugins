@@ -4,7 +4,7 @@ const runtime_init = getAsset(
 	"js-bundle://runtime/initializeRuntime.mts"
 )
 
-import {factory as projectPluginFactory} from "#~src/export/project/rollup/factory.mts"
+import {factory as projectPluginFactory} from "#~src/export/v0/project/rollup/factory.mts"
 import gluecode from "#~auto/runtime_gluecode.mts"
 
 export async function factory(project_root : string) {

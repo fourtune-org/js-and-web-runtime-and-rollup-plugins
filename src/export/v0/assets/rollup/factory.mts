@@ -1,5 +1,5 @@
-import {initializeAssets} from "#~src/init/assets/index.mts"
-import {pluginFactory} from "#~src/init/assets/rollup/pluginFactory.mjs"
+import {initializeAssets} from "#~src/init/v0/assets/index.mts"
+import {pluginFactory} from "#~src/init/v0/assets/rollup/pluginFactory.mjs"
 
 type AssetReporter = (
 	assets: {

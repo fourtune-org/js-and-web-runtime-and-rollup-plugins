@@ -1,4 +1,4 @@
-import {initializeProjectData} from "#~src/init/project/index.mts"
+import {initializeProjectData} from "#~src/init/v0/project/index.mts"
 import gluecode from "#~auto/project_gluecode.mts"
 
 export async function factory(project_root : string) {
