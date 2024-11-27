@@ -16,8 +16,14 @@ const impl : Impl = function(
 		return
 	}
 
+	let pkg_name = `<${pkg.name}>`
+
+	if (pkg.name !== context.project.package_json.name) {
+		pkg_name = `<${context.project.package_json.name}> (${pkg.name})`
+	}
+
 	// todo: add bundle identifier?
-	let first_line = `[${level.padStart(5, " ")}] <${pkg.name}> `
+	let first_line = `[${level.padStart(5, " ")}] ${pkg_name} `
 	let padding = " ".repeat(first_line.length)
 
 	const log_message = lines.map(arg => {
