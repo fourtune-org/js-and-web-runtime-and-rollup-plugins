@@ -14,21 +14,21 @@ function initializeRuntime(
 ) : DefaultExportObject {
 	return {
 		createDefaultContext(
-			options_or_context: RuntimeWrappedContextInstance|Partial<ContextOptions>|undefined
+			instance_or_options: RuntimeWrappedContextInstance|Partial<ContextOptions>|undefined
 		) : RuntimeWrappedContextInstance {
 			// handle "undefined" case
-			if (!options_or_context) {
+			if (!instance_or_options) {
 				return createWrappedContextInstance(
 					current_project, {}
 				)
 			}
 
 			// handle wrapped context instance
-			if ("_kind" in options_or_context) {
-				return options_or_context
+			if ("_kind" in instance_or_options) {
+				return instance_or_options
 			}
 
-			return createWrappedContextInstance(current_project, options_or_context)
+			return createWrappedContextInstance(current_project, instance_or_options)
 		}
 	}
 }
