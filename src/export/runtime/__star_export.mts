@@ -18,6 +18,8 @@ export const useContext : UseContext = (function(
 		)
 	}
 
+	(ctx._instance as any).__original_package = ctx._package
+
 	return ctx._instance
 }) as UseContext
 
