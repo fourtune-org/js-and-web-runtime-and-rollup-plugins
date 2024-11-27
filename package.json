@@ -9,7 +9,7 @@
     "url": "git+https://github.com/fourtune-org/js-and-web-runtime-and-rollup-plugins.git"
   },
   "exports": {
-    "./runtime": {
+    "./runtime-api": {
       "import": "./dist/runtime/index.mjs",
       "types": "./dist/runtime/index.d.mts"
     },
