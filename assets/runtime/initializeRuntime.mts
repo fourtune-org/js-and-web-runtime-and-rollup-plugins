@@ -5,7 +5,6 @@ import type {
 	DefaultExportObject,
 	WrappedContext,
 	ContextInstance,
-	UserContext,
 	ContextOptions
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
