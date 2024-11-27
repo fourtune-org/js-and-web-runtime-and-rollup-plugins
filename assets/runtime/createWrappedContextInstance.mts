@@ -53,6 +53,12 @@ export default function(project : Project, {
 		_kind: "RuntimeContextInstance",
 		_version: 0,
 		_revision: 0,
+		_package: {
+			name: project.package_json.name,
+			version: project.package_json.version,
+			author: project.package_json.author,
+			license: project.package_json.license
+		},
 		_instance
 	}
 }
