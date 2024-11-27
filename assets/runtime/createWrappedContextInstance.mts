@@ -50,6 +50,7 @@ export default function(project : Project, {
 	_instance.log = log
 
 	return {
+		_kind: "RuntimeContextInstance",
 		_version: 0,
 		_instance
 	}
