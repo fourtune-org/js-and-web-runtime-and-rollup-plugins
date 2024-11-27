@@ -14,12 +14,15 @@ function initializeRuntime(
 ) : DefaultExportObject {
 	return {
 		createContext(
-			instance_or_options: RuntimeWrappedContextInstance|Partial<ContextOptions>|undefined
+			project?: Project|undefined,
+			instance_or_options?: RuntimeWrappedContextInstance|Partial<ContextOptions>|undefined
 		) : RuntimeWrappedContextInstance {
+			const project_to_be_used = project === undefined ? current_project : project
+
 			// handle "undefined" case
 			if (!instance_or_options) {
 				return createWrappedContextInstance(
-					current_project, {}
+					project_to_be_used, {}
 				)
 			}
 
@@ -29,7 +32,7 @@ function initializeRuntime(
 			}
 
 			// instance_or_options must be of type ContextOptions
-			return createWrappedContextInstance(current_project, instance_or_options)
+			return createWrappedContextInstance(project_to_be_used, instance_or_options)
 		}
 	}
 }
