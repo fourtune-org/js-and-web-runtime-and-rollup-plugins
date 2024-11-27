@@ -10,7 +10,7 @@ const impl : Impl = function(
 	lines : string[]
 ) {
 	const tag = context.options.tag
-	const pkg = context.__original_package
+	const pkg = context.__internal_do_not_use.origin_package
 
 	if (!context.options.shouldLog(context, level, pkg, tag)) {
 		return
