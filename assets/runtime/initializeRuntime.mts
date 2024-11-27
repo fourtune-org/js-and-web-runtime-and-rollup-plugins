@@ -1,9 +1,10 @@
 // NB: this file needs to be node independent
+import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
+
 import type {
 	DefaultExportObject,
 	WrappedContext,
 	ContextInstance,
-	Project,
 	UserContext,
 	ContextOptions
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
