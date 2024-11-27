@@ -1,10 +1,11 @@
+import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
+
 import default_getCurrentLogLevel from "./context/default_getCurrentLogLevel.mts"
 import default_printLine from "./context/default_printLine.mts"
 import default_logWithLevel from "./context/default_logWithLevel.mts"
 import default_shouldLog from "./context/default_shouldLog.mts"
 
 import type {
-	Project,
 	ContextInstance,
 	WrappedContext,
 	ContextOptions,
