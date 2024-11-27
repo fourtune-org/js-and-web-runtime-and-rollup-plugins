@@ -1,5 +1,6 @@
 import type {
 	UseContext,
+	GetVersionOfContext,
 	RuntimeWrappedContextInstance
 } from "@fourtune/types/realm-js-and-web/runtime"
 
@@ -19,3 +20,12 @@ export const useContext : UseContext = (function(
 
 	return ctx._instance
 }) as UseContext
+
+export const getVersionOfContext : GetVersionOfContext = (function(
+	ctx: RuntimeWrappedContextInstance
+) {
+	return {
+		major: ctx._version,
+		revision: ctx._revision
+	}
+})
