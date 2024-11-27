@@ -1,3 +1,4 @@
+import type {RuntimePackageInformation} from "@fourtune/types/realm-js-and-web/runtime"
 import type {
 	LogLevel,
 	ContextInstance,
@@ -8,10 +9,10 @@ import logLevelToNumber from "../logLevelToNumber.mts"
 const impl : Impl = function(
 	context: ContextInstance,
 	level : LogLevel,
-	package_name : string,
+	pkg : RuntimePackageInformation,
 	tag : string
 ) {
-	void package_name;
+	void pkg;
 	void tag;
 
 	const message_log_level = logLevelToNumber(level)

@@ -10,14 +10,14 @@ const impl : Impl = function(
 	lines : string[]
 ) {
 	const tag = context.options.tag
-	const package_name = context.project.package_json.name
+	const pkg = context.__original_package
 
-	if (!context.options.shouldLog(context, level, package_name, tag)) {
+	if (!context.options.shouldLog(context, level, pkg, tag)) {
 		return
 	}
 
 	// todo: add bundle identifier?
-	let first_line = `[${level.padStart(5, " ")}] <${package_name}> `
+	let first_line = `[${level.padStart(5, " ")}] <${pkg.name}> `
 	let padding = " ".repeat(first_line.length)
 
 	const log_message = lines.map(arg => {
