@@ -52,6 +52,7 @@ export default function(project : Project, {
 	return {
 		_kind: "RuntimeContextInstance",
 		_version: 0,
+		_revision: 0,
 		_instance
 	}
 }
