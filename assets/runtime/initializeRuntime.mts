@@ -25,23 +25,6 @@ function initializeRuntime(
 			return createWrappedContextInstance(
 				current_project, options_or_context as Partial<ContextOptions>
 			)
-		},
-
-		getRuntimeVersion() : string {
-			return ""
-		},
-
-		useContext(
-			project : Project,
-			options_or_context: UserContext
-		) : ContextInstance {
-			if (isWrappedContext(options_or_context)) {
-				return (options_or_context as WrappedContext)._instance as ContextInstance
-			}
-
-			return createWrappedContextInstance(
-				project, options_or_context as Partial<ContextOptions>
-			)._instance as ContextInstance
 		}
 	}
 }
