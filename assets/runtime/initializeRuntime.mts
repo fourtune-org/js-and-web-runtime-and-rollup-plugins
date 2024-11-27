@@ -28,6 +28,7 @@ function initializeRuntime(
 				return instance_or_options
 			}
 
+			// instance_or_options must be of type ContextOptions
 			return createWrappedContextInstance(current_project, instance_or_options)
 		}
 	}
