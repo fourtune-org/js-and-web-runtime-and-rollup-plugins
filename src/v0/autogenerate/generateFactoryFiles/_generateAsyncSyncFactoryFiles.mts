@@ -71,13 +71,15 @@ export function _generateAsyncSyncFactoryFiles(
 
 	const [async_paths, sync_paths] = getPaths(options) as [Source, Source]
 
-	ret[async_paths.output.fn] = generateFunctionFileFactory(
-		options, async_paths, "async"
-	)
+	if (options.only_factory_files !== true) {
+		ret[async_paths.output.fn] = generateFunctionFileFactory(
+			options, async_paths, "async"
+		)
 
-	ret[sync_paths.output.fn] = generateFunctionFileFactory(
-		options, sync_paths, "sync"
-	)
+		ret[sync_paths.output.fn] = generateFunctionFileFactory(
+			options, sync_paths, "sync"
+		)
+	}
 
 	ret[async_paths.output.factory] = generateFactoryFileFactory(
 		options, async_paths, "async"

@@ -20,22 +20,24 @@ export function _generateFactoryFiles(
 	let ret : Result = {}
 	const paths = getPaths(options) as Source
 
-	ret[paths.output.fn] = async (fourtune_session: FourtuneSession) => {
-		const source_code = (await fs.readFile(
-			path.join(fourtune_session.getProjectRoot(), options.source_file)
-		)).toString()
+	if (options.only_factory_files !== true) {
+		ret[paths.output.fn] = async (fourtune_session: FourtuneSession) => {
+			const source_code = (await fs.readFile(
+				path.join(fourtune_session.getProjectRoot(), options.source_file)
+			)).toString()
 
-		const base = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web")
+			const base = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web")
 
-		const {tsGenerateFunctionFactoryCode} = base
+			const {tsGenerateFunctionFactoryCode} = base
 
-		const {fn} = await tsGenerateFunctionFactoryCode(
-			paths,
-			source_code,
-			null
-		)
+			const {fn} = await tsGenerateFunctionFactoryCode(
+				paths,
+				source_code,
+				null
+			)
 
-		return fn
+			return fn
+		}
 	}
 
 	ret[paths.output.factory] = async (fourtune_session) => {
