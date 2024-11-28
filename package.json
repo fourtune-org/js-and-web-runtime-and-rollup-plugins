@@ -13,9 +13,9 @@
       "import": "./dist/autogenerate/index.mjs",
       "types": "./dist/autogenerate/index.d.mts"
     },
-    "./runtime-api": {
-      "import": "./dist/runtime/index.mjs",
-      "types": "./dist/runtime/index.d.mts"
+    "./_versionless/runtime-api": {
+      "import": "./dist/_versionless.runtime/index.mjs",
+      "types": "./dist/_versionless.runtime/index.d.mts"
     },
     "./v0/project/node-api": {
       "import": "./dist/v0.project.node/index.mjs",
