@@ -6,7 +6,7 @@ import type {
 import path from "node:path"
 import fs from "node:fs/promises"
 
-import {_generateAsyncSyncVariantFromString} from "#~src/autogenerate/_generateAsyncSyncVariantFromString.mts"
+import {_generateAsyncSyncVariantFromString} from "#~src/v0/autogenerate/_generateAsyncSyncVariantFromString.mts"
 
 export function generateAsyncSyncVariant(
 	source_path: string,
