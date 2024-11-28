@@ -20,7 +20,7 @@ export function generateAsyncSyncVariant(
 		)).toString()
 
 		return _generateAsyncSyncVariantFromString(
-			contents, variant
+			contents, variant, source_path
 		)
 	}
 }

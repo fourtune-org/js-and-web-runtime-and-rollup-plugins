@@ -11,6 +11,6 @@ export function generateAsyncSyncVariantFromString(
 	file_name?: string
 ) : FourtuneFileGenerator {
 	return async function(f: FourtuneSession) : Promise<string> {
-		return _generateAsyncSyncVariantFromString(code, variant)
+		return _generateAsyncSyncVariantFromString(code, variant, file_name)
 	}
 }

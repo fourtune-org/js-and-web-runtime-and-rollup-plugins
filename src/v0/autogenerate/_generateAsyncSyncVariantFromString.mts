@@ -1,6 +1,22 @@
+import path from "node:path"
+import {
+	expandAsyncSyncVariantFilePath
+} from "#~src/v0/utils/index.mts"
+
+function removeFileExtension(file_name: string) {
+	if (file_name.endsWith(".d.mts")) {
+		return file_name.slice(0, -6)
+	} else if (file_name.endsWith(".mts")) {
+		return file_name.slice(0, -4)
+	}
+
+	return file_name
+}
+
 export function _generateAsyncSyncVariantFromString(
 	source: string,
-	variant: "async" | "sync"
+	variant: "async" | "sync",
+	source_file_path?: string
 ) : string {
 	const lines = source.toString().split("\n")
 
@@ -28,5 +44,21 @@ export function _generateAsyncSyncVariantFromString(
 		output.push(line)
 	}
 
-	return output.join("\n")
+	if (!source_file_path) {
+		return output.join("\n")
+	}
+
+	//
+	// replace __XX__ with the expanded file name (minus the extension)
+	//
+	const [
+		async_file_path,
+		sync_file_path
+	] = expandAsyncSyncVariantFilePath(source_file_path)
+
+	return output.join("\n").split("__XX__").join(
+		removeFileExtension(
+			path.basename(variant === "async" ? async_file_path : sync_file_path)
+		)
+	)
 }
