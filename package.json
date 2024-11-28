@@ -13,6 +13,10 @@
       "import": "./dist/_versionless.runtime/index.mjs",
       "types": "./dist/_versionless.runtime/index.d.mts"
     },
+    "./v0/utils-api": {
+      "import": "./dist/v0.utils/index.mjs",
+      "types": "./dist/v0.utils/index.d.mts"
+    },
     "./v0/autogenerate-api": {
       "import": "./dist/v0.autogenerate/index.mjs",
       "types": "./dist/v0.autogenerate/index.d.mts"
