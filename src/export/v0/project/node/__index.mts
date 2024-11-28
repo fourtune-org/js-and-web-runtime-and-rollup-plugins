@@ -1,4 +1,4 @@
-import {initializeProjectData} from "#~src/init/v0/project/index.mts"
+import {initializeProjectData} from "#~src/v0/init/project/index.mts"
 
 const project = await initializeProjectData(null)
 
