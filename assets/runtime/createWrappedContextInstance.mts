@@ -1,5 +1,5 @@
 import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
-import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-web/runtime"
+import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-web/_versionless/runtime"
 
 import default_getCurrentLogLevel from "./context/default_getCurrentLogLevel.mts"
 import default_printLine from "./context/default_printLine.mts"

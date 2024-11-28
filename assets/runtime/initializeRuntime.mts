@@ -1,6 +1,6 @@
 // NB: this file needs to be node independent
 import type {Project} from "@fourtune/types/realm-js-and-web/v0/project"
-import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-web/runtime"
+import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-web/_versionless/runtime"
 
 import type {
 	DefaultExportObject,

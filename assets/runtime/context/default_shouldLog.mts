@@ -1,4 +1,4 @@
-import type {RuntimePackageInformation} from "@fourtune/types/realm-js-and-web/runtime"
+import type {RuntimePackageInformation} from "@fourtune/types/realm-js-and-web/_versionless/runtime"
 import type {
 	LogLevel,
 	ContextInstance,

@@ -2,9 +2,9 @@ import type {
 	UseContext,
 	GetContextMetaData,
 	RuntimeWrappedContextInstance
-} from "@fourtune/types/realm-js-and-web/runtime"
+} from "@fourtune/types/realm-js-and-web/_versionless/runtime"
 
-export type * from "@fourtune/types/realm-js-and-web/runtime"
+export type * from "@fourtune/types/realm-js-and-web/_versionless/runtime"
 
 export const useContext : UseContext = (function(
 	ctx: RuntimeWrappedContextInstance,
