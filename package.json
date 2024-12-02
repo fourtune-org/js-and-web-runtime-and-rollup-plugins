@@ -58,7 +58,7 @@
     "@fourtune/types": "^0.32000.0",
     "@types/node": "^22.8.4",
     "fourtune": "^0.900.0",
-    "fourtune-embedded-core": "npm:@fourtune/core@^0.1000.1"
+    "fourtune-embedded-core": "npm:@fourtune/core@^0.1100.0"
   },
   "files": [
     "./dist/"
