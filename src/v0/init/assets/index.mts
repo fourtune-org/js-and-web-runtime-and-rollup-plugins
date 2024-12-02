@@ -1,5 +1,5 @@
 import resolveProjectRoot from "#~src/resolveProjectRoot.mjs"
-import core from "@fourtune/core/v1"
+import core from "fourtune-embedded-core/v1"
 
 import type {
 	DefaultExportObject as BaseObject,
