@@ -30,7 +30,7 @@ export function _generateFactoryFiles(
 				path.join(fourtune_session.getProjectRoot(), options.source_file)
 			)).toString()
 
-			const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
+			const base : BaseObject = fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 			const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
 
@@ -52,7 +52,7 @@ export function _generateFactoryFiles(
 			path.join(fourtune_session.getProjectRoot(), options.source_file)
 		)).toString()
 
-		const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
+		const base : BaseObject = fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 		const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
 
