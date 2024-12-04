@@ -42,7 +42,7 @@ export async function createJSBundle(
 	absolute_path : string,
 	initializeAssets: InitializeAssets
 ) : Promise<string> {
-	const {tsBundler} = base
+	const {tsAssetFileBundler} = base
 
 	const entry_code = await getEntryCode(
 		base, absolute_path
@@ -66,11 +66,9 @@ export async function createJSBundle(
 		)
 	})
 
-	return await tsBundler(
+	return await tsAssetFileBundler(
 		project_root, entry_code, {
-			additional_plugins,
-			// never treeshake assets
-			treeshake: false
+			additional_plugins
 		}
 	)
 }
