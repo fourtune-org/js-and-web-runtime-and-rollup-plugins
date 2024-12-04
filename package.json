@@ -55,7 +55,7 @@
     "@anio-software/fs": "^0.6.0",
     "@fourtune/core": "^0.500.0",
     "@fourtune/realm-js": "^0.700.0-alpha.1",
-    "@fourtune/types": "^0.55000.2",
+    "@fourtune/types": "^0.65000.0",
     "@types/node": "^22.8.4",
     "fourtune": "^0.900.0",
     "fourtune-embedded-core": "npm:@fourtune/core@^0.1100.0"
