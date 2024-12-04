@@ -27,9 +27,10 @@ function generateFunctionFileFactory(
 		const source = await generate(fourtune_session, variant)
 		const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
-		const {tsGenerateFunctionFactoryCode} = base
+		const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
 
-		const {fn} = await tsGenerateFunctionFactoryCode(
+		const {fn} = await tsGenerateFunctionFactoryCodeForRealmJSAndWebV0(
+			fourtune_session.getProjectRoot(),
 			paths,
 			source,
 			variant === "async"
@@ -52,9 +53,10 @@ function generateFactoryFileFactory(
 		const source = await generate(fourtune_session, variant)
 		const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
-		const {tsGenerateFunctionFactoryCode} = base
+		const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
 
-		const {factory} = await tsGenerateFunctionFactoryCode(
+		const {factory} = await tsGenerateFunctionFactoryCodeForRealmJSAndWebV0(
+			fourtune_session.getProjectRoot(),
 			paths,
 			source,
 			variant === "async"
