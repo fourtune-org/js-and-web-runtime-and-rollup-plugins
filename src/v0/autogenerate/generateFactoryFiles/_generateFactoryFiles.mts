@@ -6,6 +6,10 @@ import type {
 } from "@fourtune/types/realm-js-and-web/v0/autogenerate"
 
 import type {
+	DefaultExportObject as BaseObject
+} from "@fourtune/types/base-realm-js-and-web/v0"
+
+import type {
 	FourtuneFileGenerator,
 	FourtuneSession
 } from "@fourtune/types/fourtune/v0"
@@ -26,7 +30,7 @@ export function _generateFactoryFiles(
 				path.join(fourtune_session.getProjectRoot(), options.source_file)
 			)).toString()
 
-			const base = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web")
+			const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 			const {tsGenerateFunctionFactoryCode} = base
 
@@ -47,7 +51,7 @@ export function _generateFactoryFiles(
 			path.join(fourtune_session.getProjectRoot(), options.source_file)
 		)).toString()
 
-		const base = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web")
+		const base : BaseObject = await fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 		const {tsGenerateFunctionFactoryCode} = base
 
