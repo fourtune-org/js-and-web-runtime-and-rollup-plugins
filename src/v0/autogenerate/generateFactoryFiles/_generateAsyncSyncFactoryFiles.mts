@@ -1,4 +1,4 @@
-import {getPaths, type Source, type Result as Paths} from "./getPaths.mts"
+import {getPaths, type Source} from "./getPaths.mts"
 import type {
 	GenerateFactoryFilesOptions
 } from "@fourtune/types/realm-js-and-web/v0/autogenerate"
@@ -16,7 +16,7 @@ import {generateAsyncSyncVariant} from "#~src/v0/autogenerate/generateAsyncSyncV
 
 function generateFunctionFileFactory(
 	options: GenerateFactoryFilesOptions,
-	paths: Paths,
+	paths: Source,
 	variant: "async" | "sync"
 ) : FourtuneFileGenerator {
 	return async (fourtune_session: FourtuneSession) => {
@@ -42,7 +42,7 @@ function generateFunctionFileFactory(
 
 function generateFactoryFileFactory(
 	options: GenerateFactoryFilesOptions,
-	paths: Paths,
+	paths: Source,
 	variant: "async" | "sync"
 ) : FourtuneFileGenerator {
 	return async (fourtune_session: FourtuneSession) => {
