@@ -5,16 +5,16 @@ import {
 	expandAsyncSyncVariantFilePath
 } from "#~src/v0/utils/index.mts"
 
+import {expandAsyncSyncVariantSourceFile} from "#~src/v0/utils/expandAsyncSyncVariantSourceFile.mts"
 import {expandAsyncSyncVariantSourceCode} from "#~src/v0/utils/expandAsyncSyncVariantSourceCode.mts"
-import {expandAsyncSyncVariantSourceCodeFromString} from "#~src/v0/utils/expandAsyncSyncVariantSourceCodeFromString.mts"
 
 export {
 	isExpandableName,
 	isExpandableFilePath,
 	expandAsyncSyncVariantName,
 	expandAsyncSyncVariantFilePath,
-	expandAsyncSyncVariantSourceCode,
-	expandAsyncSyncVariantSourceCodeFromString
+	expandAsyncSyncVariantSourceFile,
+	expandAsyncSyncVariantSourceCode
 }
 
 export default {
@@ -22,6 +22,6 @@ export default {
 	isExpandableFilePath,
 	expandAsyncSyncVariantName,
 	expandAsyncSyncVariantFilePath,
-	expandAsyncSyncVariantSourceCode,
-	expandAsyncSyncVariantSourceCodeFromString
+	expandAsyncSyncVariantSourceFile,
+	expandAsyncSyncVariantSourceCode
 }
