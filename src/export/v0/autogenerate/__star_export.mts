@@ -1,15 +1,9 @@
 import {generateFactoryFiles} from "#~src/v0/autogenerate/generateFactoryFiles/index.mts"
-import {generateAsyncSyncVariant} from "#~src/v0/autogenerate/generateAsyncSyncVariant.mts"
-import {generateAsyncSyncVariantFromString} from "#~src/v0/autogenerate/generateAsyncSyncVariantFromString.mts"
 
 export {
-	generateFactoryFiles,
-	generateAsyncSyncVariant,
-	generateAsyncSyncVariantFromString
+	generateFactoryFiles
 }
 
 export default {
-	generateFactoryFiles,
-	generateAsyncSyncVariant,
-	generateAsyncSyncVariantFromString
+	generateFactoryFiles
 }
