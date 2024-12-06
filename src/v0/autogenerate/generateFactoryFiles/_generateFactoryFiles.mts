@@ -46,8 +46,6 @@ export function _generateFactoryFiles(
 	}
 
 	ret[paths.output.factory] = async (fourtune_session) => {
-		//todo: use fourtune_session.paths.getBuildPathFromProjectRoot(options.source_file)?
-
 		const source_code = (await fs.readFile(
 			path.join(fourtune_session.getProjectRoot(), options.source_file)
 		)).toString()
