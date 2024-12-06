@@ -1,3 +1,4 @@
+import path from "node:path"
 import {getPaths, type Source} from "./getPaths.mts"
 import type {
 	GenerateFactoryFilesOptions
@@ -12,7 +13,7 @@ import type {
 	FourtuneSession
 } from "@fourtune/types/fourtune/v0"
 
-import {generateAsyncSyncVariant} from "#~src/v0/autogenerate/generateAsyncSyncVariant.mts"
+import {expandAsyncSyncVariantSourceFile} from "#~src/v0/utils/expandAsyncSyncVariantSourceFile.mts"
 
 function generateFunctionFileFactory(
 	options: GenerateFactoryFilesOptions,
@@ -23,8 +24,10 @@ function generateFunctionFileFactory(
 		// NB: we must create our own version of async/sync
 		// since we would be potentially using outdated code
 		// (e.g. if we read the code from the file system (auto/src/ folder))
-		const generate = generateAsyncSyncVariant(options.source_file, variant)
-		const source = await generate(fourtune_session, variant)
+		const source = expandAsyncSyncVariantSourceFile(
+			path.join(fourtune_session.getProjectRoot(), options.source_file), variant
+		)
+
 		const base : BaseObject = fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 		const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
@@ -49,8 +52,10 @@ function generateFactoryFileFactory(
 		// NB: we must create our own version of async/sync
 		// since we would be potentially using outdated code
 		// (e.g. if we read the code from the file system (auto/src/ folder))
-		const generate = generateAsyncSyncVariant(options.source_file, variant)
-		const source = await generate(fourtune_session, variant)
+		const source = expandAsyncSyncVariantSourceFile(
+			path.join(fourtune_session.getProjectRoot(), options.source_file), variant
+		)
+
 		const base : BaseObject = fourtune_session.getDependency("@fourtune/base-realm-js-and-web") as BaseObject
 
 		const {tsGenerateFunctionFactoryCodeForRealmJSAndWebV0} = base
