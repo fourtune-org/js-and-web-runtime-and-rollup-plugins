@@ -25,7 +25,7 @@ export function getPaths(
 ) : Result {
 	if (!isExpandableFilePath(options.source_file)) {
 		const source = path.normalize(
-			path.join(_auto_src ? "#~auto" : "#~src", options.source_file.slice(4))
+			path.join(_auto_src ? "#~synthetic" : "#~src", options.source_file.slice(4))
 		)
 
 		const output = {
