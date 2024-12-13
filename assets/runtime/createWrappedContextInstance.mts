@@ -12,6 +12,19 @@ import type {
 	LogLevel
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
+// -- credit user "f v" on stackoverflow
+// URL: https://stackoverflow.com/a/70694878
+type ValueOf<T> = T[keyof T];
+
+type NonEmptyArray<T> = [T, ...T[]]
+
+type MustInclude<T, U extends T[]> = [T] extends [ValueOf<U>] ? U : never;
+
+function stringUnionToArray<T>() {
+	return <U extends NonEmptyArray<T>>(...elements: MustInclude<T, U>) => elements;
+}
+// --
+
 export default function(project : Project, {
 	tag                = "",
 	getCurrentLogLevel = default_getCurrentLogLevel,
@@ -35,7 +48,9 @@ export default function(project : Project, {
 		inst.options.logWithLevel(inst, "debug", messages)
 	}).bind(_instance as ContextInstance)
 
-	const log_levels : LogLevel[] = ["error", "warn", "info", "debug", "trace"]
+	const log_levels : LogLevel[] = stringUnionToArray<LogLevel>()(
+		"emerg", "error", "warn", "info", "debug", "trace"
+	)
 
 	for (const level of log_levels) {
 		log[level] = function(...messages: string[]) {
