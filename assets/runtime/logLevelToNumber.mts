@@ -2,12 +2,13 @@ import type {LogLevel} from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 export default function(level : LogLevel) : number {
 	const map = {
-		"emerg": 1,
-		"error": 3,
-		"warn" : 4,
-		"info" : 5,
-		"debug": 6,
-		"trace": 7
+		// uint16 max 65535
+		"emerg": 60000,
+		"error": 50000,
+		"warn" : 40000,
+		"info" : 30000,
+		"debug": 20000,
+		"trace": 10000
 	}
 
 	if (level in map) {
