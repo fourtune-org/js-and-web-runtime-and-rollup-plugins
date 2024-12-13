@@ -4,7 +4,7 @@ import type {
 	ContextInstance,
 	ContextOptionsShouldLog as Impl
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
-import logLevelToNumber from "../logLevelToNumber.mts"
+import {compareLogLevel} from "../compareLogLevel.mts"
 
 const impl : Impl = function(
 	context: ContextInstance,
@@ -15,12 +15,11 @@ const impl : Impl = function(
 	void pkg;
 	void tag;
 
-	const message_log_level = logLevelToNumber(level)
-	const current_log_level = logLevelToNumber(
+	return compareLogLevel(
+		level,
+		">=",
 		context.options.getCurrentLogLevel(context)
 	)
-
-	return !(message_log_level > current_log_level)
 }
 
 export default impl
