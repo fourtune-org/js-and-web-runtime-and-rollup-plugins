@@ -10,9 +10,11 @@ import type {
 } from "@fourtune/types/base-realm-js-and-web/v0"
 
 import type {
-	FourtuneFileGenerator,
+	FourtuneConfig,
 	FourtuneSession
 } from "@fourtune/types/fourtune/v0"
+
+type FourtuneFileGenerator = Required<FourtuneConfig>["autogenerate"][string]
 
 type Result = {
 	[key: string]: FourtuneFileGenerator

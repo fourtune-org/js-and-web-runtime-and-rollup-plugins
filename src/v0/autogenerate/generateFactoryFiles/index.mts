@@ -5,8 +5,10 @@ import type {
 } from "@fourtune/types/realm-js-and-web/v0/autogenerate"
 
 import type {
-	FourtuneFileGenerator
+	FourtuneConfig
 } from "@fourtune/types/fourtune/v0"
+
+type FourtuneFileGenerator = Required<FourtuneConfig>["autogenerate"][string]
 
 import {
 	isExpandableName,

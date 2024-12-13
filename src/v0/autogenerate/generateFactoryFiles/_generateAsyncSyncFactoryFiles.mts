@@ -9,9 +9,11 @@ import type {
 } from "@fourtune/types/base-realm-js-and-web/v0"
 
 import type {
-	FourtuneFileGenerator,
+	FourtuneConfig,
 	FourtuneSession
 } from "@fourtune/types/fourtune/v0"
+
+type FourtuneFileGenerator = Required<FourtuneConfig>["autogenerate"][string]
 
 import {expandAsyncSyncVariantSourceFile} from "#~src/v0/utils/expandAsyncSyncVariantSourceFile.mts"
 
