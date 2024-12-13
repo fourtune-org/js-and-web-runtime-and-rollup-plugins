@@ -27,7 +27,7 @@ const impl : Impl = function(
 		}
 	}
 
-	if (logLevelToNumber(current_log_level) === -1) {
+	if (logLevelToNumber(current_log_level as LogLevel) === -1) {
 		context.options.printLine(context, `Warning: invalid log level '${current_log_level}'`)
 
 		current_log_level = "info"
