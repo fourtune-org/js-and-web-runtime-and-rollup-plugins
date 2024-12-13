@@ -7,13 +7,16 @@ const project = await initializeProjectData(null)
 export type * from "@fourtune/types/realm-js-and-web/v0/runtime"
 //-- glue code start ; do not remove or edit this line --//
 const {
-	createContext
+	createContext,
+	compareLogLevel
 } = initializeRuntime(project)
 
 export {
-	createContext
+	createContext,
+	compareLogLevel
 }
 
 export default {
-	createContext
+	createContext,
+	compareLogLevel
 }

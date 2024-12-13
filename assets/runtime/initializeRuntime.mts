@@ -4,10 +4,12 @@ import type {RuntimeWrappedContextInstance} from "@fourtune/types/realm-js-and-w
 
 import type {
 	DefaultExportObject,
-	ContextOptions
+	ContextOptions,
+	LogLevel
 } from "@fourtune/types/realm-js-and-web/v0/runtime"
 
 import createWrappedContextInstance from "./createWrappedContextInstance.mts"
+import logLevelToNumber from "./logLevelToNumber.mts"
 
 function initializeRuntime(
 	current_project : Project
@@ -30,6 +32,27 @@ function initializeRuntime(
 
 			// instance_or_options must be of type ContextOptions
 			return createWrappedContextInstance(current_project, instance_or_options)
+		},
+
+		compareLogLevel(
+			log_level_left: LogLevel,
+			operator: Parameters<DefaultExportObject["compareLogLevel"]>[1],
+			log_level_right: LogLevel
+		) : boolean {
+			const left = logLevelToNumber(log_level_left)
+			const right = logLevelToNumber(log_level_right)
+
+			if (operator === ">") {
+				return left > right
+			} else if (operator === ">=") {
+				return left >= right
+			} else if (operator === "<") {
+				return left < right
+			} else if (operator === "<=") {
+				return left <= right
+			}
+
+			throw new Error(`Invalid operator "${operator}".`)
 		}
 	}
 }

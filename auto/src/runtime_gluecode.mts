@@ -1,1 +1,1 @@
-export default "const {\n  createContext\n} = initializeRuntime(project);\nexport { createContext };\nexport default {\n  createContext\n};"
+export default "const {\n  createContext,\n  compareLogLevel\n} = initializeRuntime(project);\nexport { createContext, compareLogLevel };\nexport default {\n  createContext,\n  compareLogLevel\n};"
