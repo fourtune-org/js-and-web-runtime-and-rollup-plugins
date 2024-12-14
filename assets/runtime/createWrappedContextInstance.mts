@@ -42,6 +42,13 @@ export default function(project : Project, {
 
 	let _instance : Partial<ContextInstance> = {}
 
+	_instance.defaults = {
+		getCurrentLogLevel: default_getCurrentLogLevel,
+		printLine: default_printLine,
+		logWithLevel: default_logWithLevel,
+		shouldLog: default_shouldLog
+	}
+
 	const log : any = function log(...messages : string[]) {
 		const inst = _instance as Required<typeof _instance>
 
