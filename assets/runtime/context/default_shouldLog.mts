@@ -15,10 +15,16 @@ const impl : Impl = function(
 	void pkg;
 	void tag;
 
+	let current_log_level = context.options.getCurrentLogLevel(context)
+
+	if (current_log_level === null) {
+		current_log_level = context.defaults.getCurrentLogLevel(context)
+	}
+
 	return compareLogLevel(
 		level,
 		">=",
-		context.options.getCurrentLogLevel(context)
+		current_log_level
 	)
 }
 
