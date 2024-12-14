@@ -42,11 +42,11 @@ export default function(project : Project, {
 
 	let _instance : Partial<ContextInstance> = {}
 
-	const log : any = (function log(...messages : string[]) {
+	const log : any = function log(...messages : string[]) {
 		const inst = _instance as Required<typeof _instance>
 
 		inst.options.logWithLevel(inst, "debug", messages)
-	}).bind(_instance as ContextInstance)
+	}
 
 	const log_levels : LogLevel[] = stringUnionToArray<LogLevel>()(
 		"emerg", "error", "warn", "info", "debug", "trace"
