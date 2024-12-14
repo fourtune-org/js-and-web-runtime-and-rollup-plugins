@@ -18,7 +18,7 @@ const impl : Impl = function(
 	let current_log_level = context.options.getCurrentLogLevel(context)
 
 	if (current_log_level === null) {
-		current_log_level = context.defaults.getCurrentLogLevel(context)
+		current_log_level = context.defaults.getCurrentLogLevel(context) as LogLevel
 	}
 
 	return compareLogLevel(
