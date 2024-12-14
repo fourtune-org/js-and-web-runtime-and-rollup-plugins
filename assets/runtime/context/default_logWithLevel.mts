@@ -12,7 +12,13 @@ const impl : Impl = function(
 	const tag = context.options.tag
 	const pkg = context.__internal_do_not_use.origin_package
 
-	if (!context.options.shouldLog(context, level, pkg, tag)) {
+	const should_log_result = context.options.shouldLog(context, level, pkg, tag)
+
+	if (should_log_result === null) {
+		if (context.defaults.shouldLog(context, level, pkg, tag) !== true) {
+			return
+		}
+	} else if (should_log_result !== true) {
 		return
 	}
 
